@@ -1,2 +1,2 @@
-export {Text, Subtitle, Headline, Tab, Tabs} from './ui-kit'
+export {Text, Subtitle, Headline, Tab, Tabs, Breadcrumbs} from './ui-kit'
 
