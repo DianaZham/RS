@@ -1,11 +1,13 @@
-import React from 'react'
+import React, {FC} from 'react'
 
-function App() {
+const App: FC = () => {
     return (
-        <div className="App">
-            Hola!
+        <div>
+            Hola
         </div>
     )
 }
+
+App.displayName = 'App'
 
 export default App
