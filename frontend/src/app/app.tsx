@@ -2,13 +2,17 @@ import React, {FC} from 'react'
 import {GlobalStyles} from './styles'
 import {RouterProvider} from 'react-router-dom'
 import {router} from './routes'
+import {ThemeProvider} from 'styled-components'
+import {ApplicationTheme} from './styles'
 
 
 const App: FC = () => {
     return (
         <>
-            <GlobalStyles/>
-            <RouterProvider router={router}/>
+            <ThemeProvider theme={ApplicationTheme}>
+                <GlobalStyles/>
+                <RouterProvider router={router}/>
+            </ThemeProvider>
         </>
     )
 }

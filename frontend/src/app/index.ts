@@ -1,4 +1,4 @@
-export {default as App} from './App'
+export {default as App} from './app'
 export {store} from './store/store'
 export {useAppSelector, useAppDispatch} from './store/hooks'
 
