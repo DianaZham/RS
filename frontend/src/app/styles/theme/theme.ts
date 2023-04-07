@@ -58,9 +58,9 @@ const ApplicationTheme: DefaultTheme = {
             extraLight: '#73C5FF'
         },
         secondary: {
-            extraDark: '#0B83D9',
-            dark: '#0E91EF',
-            light: '#3EACFA',
+            extraDark: '#000C58',
+            dark: '#000F73',
+            light: '#263699',
             extraLight: '#5865BA'
         },
         tertiary: {
