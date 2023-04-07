@@ -29,12 +29,12 @@ const desktopFonts: DefaultTheme['font']['desktop'] = {
         size: 12,
         weight: 'medium',
     },
-    'body-large': {
+    'text-large': {
         size: 16,
         weight: 'regular',
         lineHeight: 24,
     },
-    'body-small': {
+    'text-small': {
         size: 14,
         weight: 'medium',
         lineHeight: 21,

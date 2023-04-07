@@ -31,8 +31,8 @@ interface FontVariant {
     lineHeight?: number
 }
 
-type BaseSizes = 'small' | 'large'
-type FullSizes = 'normal' | 'medium' | BaseSizes
+export type BaseSizes = 'small' | 'large'
+export type FullSizes = 'normal' | 'medium' | BaseSizes
 
 
 type HeadlineVariant = {
@@ -43,15 +43,15 @@ type SubtitleVariant = {
     [key in `subtitle-${BaseSizes}`]: FontVariant
 }
 
-type BodyVariant = {
-    [key in `body-${BaseSizes}`]: FontVariant
+type TextVariant = {
+    [key in `text-${BaseSizes}`]: FontVariant
 }
 
 type ButtonVariant = {
     [key in `button-${BaseSizes}`]: FontVariant
 }
 
-type TextVariant = HeadlineVariant & SubtitleVariant & BodyVariant & ButtonVariant
+type TypographyVariant = HeadlineVariant & SubtitleVariant & TextVariant & ButtonVariant
 
 interface SpacingVariant {
     [key: `sp-${number}`]: number
@@ -69,8 +69,8 @@ declare module 'styled-components' {
     export interface DefaultTheme {
         font: {
             family: string
-            desktop: TextVariant
-            mobile: TextVariant
+            desktop: TypographyVariant
+            mobile: TypographyVariant
         }
         colors: {
             primary: ColorVariant
