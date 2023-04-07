@@ -1,10 +1,9 @@
 import React, {FC} from 'react'
+import {GlobalStyles} from './styles'
 
 const App: FC = () => {
     return (
-        <div>
-            Hola
-        </div>
+        <GlobalStyles/>
     )
 }
 
