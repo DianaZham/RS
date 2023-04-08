@@ -1,0 +1,1 @@
+export {toUpperCaseFirstChar} from './string'

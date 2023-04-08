@@ -1,5 +1,5 @@
 import React, {FC} from 'react'
-import {Breadcrumbs, Tab, Tabs, Text} from '../../share'
+import {Breadcrumbs, Calendar, Tab, Tabs, Text} from '../../share'
 
 const HomePage: FC = () => (
     <div>
@@ -14,6 +14,7 @@ const HomePage: FC = () => (
             <span>2</span>
             <span>3</span>
         </Breadcrumbs>
+        <Calendar/>
     </div>
 )
 

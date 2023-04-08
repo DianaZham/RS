@@ -1,2 +1,2 @@
-export {Text, Subtitle, Headline, Tab, Tabs, Breadcrumbs} from './ui-kit'
-
+export * from './ui-kit'
+export {toUpperCaseFirstChar} from './utils'
