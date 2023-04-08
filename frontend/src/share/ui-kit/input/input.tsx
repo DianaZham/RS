@@ -24,4 +24,6 @@ const Input: FC<InputProps> = ({placeholder, type = 'text', name = 'name'}) => {
 
 }
 
+
+Input.displayName = 'Input'
 export default Input

@@ -1,5 +1,5 @@
 import React, {FC} from 'react'
-import {Breadcrumbs, Calendar, Link, Map, Tab, Tabs, Text, Button, VideoPlayer, Alert, Chart} from '../../share'
+import {Breadcrumbs, Calendar, Link, Map, Tab, Tabs, Text, Button, VideoPlayer, Alert, Chart, Modal} from '../../share'
 import {Path} from '../../app'
 
 const HomePage: FC = () => (
@@ -16,7 +16,7 @@ const HomePage: FC = () => (
             <Link to={Path.Other}>Other</Link>
         </Breadcrumbs>
         <Calendar/>
-        <Map lat={113.5} lon={52.03} zoom={9}/>
+        <Map center={{lat: 55.5, lon: 37}} coords={[{lat: 52, lon: 23} ,{lat: 53, lon: 23}]} zoom={5}/>
         <Button > dfasdasd asd as das </Button>
         <VideoPlayer listSrc={['./']} />
         <Alert $variant='warning'>12312</Alert>

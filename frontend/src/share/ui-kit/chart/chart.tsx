@@ -80,4 +80,5 @@ const Chart: FC<ChartProps> = ({name, datasets, labels, type}) => {
 
 }
 
+Chart.displayName = 'Chart'
 export default Chart

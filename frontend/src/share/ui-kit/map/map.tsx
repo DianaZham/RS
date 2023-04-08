@@ -1,20 +1,41 @@
 import React, {FC} from 'react'
-import {YMaps, Map as YMap} from '@pbe/react-yandex-maps'
+import {YMaps, Map as YMap, Placemark} from '@pbe/react-yandex-maps'
+import { nanoid } from '@reduxjs/toolkit'
+import { Modal } from '../modal'
+import { useAppDispatch, useAppSelector } from '../../../app'
+import { modalSlice } from '../../../entities/modal/model/slice/modalSlice'
 
-type MapProps = {
-    zoom: number
+type Coord = {
+    lat: number,
     lon: number
-    lat: number
 }
 
-const Map: FC<MapProps> = ({
-    zoom,
-    lon,
-    lat
-}) => {
+
+type MapProps = {
+    center: Coord,
+    coords: Coord[]
+    zoom: number
+}
+    
+const Map: FC<MapProps> = ({zoom, coords, center}) => {
+    const {isModal} = useAppSelector(state => state.rootReducer.modalReducer)
+    const {closeModal, opneModal} = modalSlice.actions
+    const dispatch = useAppDispatch()
+
     return (
         <YMaps>
-            <YMap defaultState={{center: [lon, lat], zoom: zoom}}/>
+            <YMap
+                defaultState={{
+                    center: [center.lat, center.lon],
+                    zoom,
+                }}
+            >
+                {coords.map(({lat, lon}) => <Placemark 
+                    onClick={() => {dispatch(opneModal())}} 
+                    key={nanoid()} 
+                    geometry={[lat, lon]} />)}
+                <Modal isModal={isModal} onClose={() => dispatch(closeModal())}>Любооооой контент!!!</Modal>
+            </YMap>
         </YMaps>
     )
 }

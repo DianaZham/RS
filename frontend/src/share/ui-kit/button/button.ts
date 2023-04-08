@@ -41,4 +41,5 @@ const Button = styled.button<StyledButtonProps>`
 	}
 `
 
+Button.displayName = 'Button'
 export default Button
