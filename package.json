@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@pbe/react-yandex-maps": "^1.2.3",
     "@types/react-big-calendar": "^1.6.3",
     "moment": "^2.29.4",
     "react-big-calendar": "^1.6.9"
