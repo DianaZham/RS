@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-export const StyledButton = styled.button`
-    font-family: 'Nunito', sans-serif;
+const Button = styled.button`
     height: 40px;
     background: #0E91EF;
 	box-shadow: 0px 4px 8px rgba(0, 15, 115, 0.08);
@@ -10,5 +9,7 @@ export const StyledButton = styled.button`
 	padding: 0px 24px;
 	font-weight: 700;
 	font-size: 14px;
-	color: #FFFFFF;
+	color: #17181A;
 `
+
+export default Button
