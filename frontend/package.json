@@ -16,7 +16,6 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.10.0",
     "styled-components": "^5.3.9",
-    "@pbe/react-yandex-maps": "^1.2.3",
     "moment": "^2.29.4",
     "react-big-calendar": "^1.6.9",
     "react-table": "^7.8.0"
