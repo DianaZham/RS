@@ -67,7 +67,7 @@ const ApplicationTheme: DefaultTheme = {
             extraDark: '#F26C0C',
             dark: '#FF661A',
             light: '#FF9040',
-            extraLight: '#f6cb8a'
+            extraLight: '#FFA96A'
         },
         neutral: {
             black: '#17181A',
@@ -82,8 +82,8 @@ const ApplicationTheme: DefaultTheme = {
             dangerLight: '#FCA3B2',
             success: '#07D95A',
             successLight: '#9CF0BD',
-            warning: '#d9bd07',
-            warningLight: '#dace7a'
+            warning: '#ffe44e',
+            warningLight: '#fff5c3'
         },
     },
     font:
