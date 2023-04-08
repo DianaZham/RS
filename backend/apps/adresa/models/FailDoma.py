@@ -5,7 +5,7 @@ from django.template.defaultfilters import safe
 from apps.adresa.models import Dom
 
 
-class FailiDoma(models.Model):
+class FailDoma(models.Model):
     class Meta():
         verbose_name = 'Файл дома'
         verbose_name_plural = 'Файлы дома'

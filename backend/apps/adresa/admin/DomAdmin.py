@@ -1,7 +1,7 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
 
-from apps.adresa.admin import FotoDomaInline
+from apps.adresa.admin import FotoDomaInline, VideoDomaInline, FailDomaInline
 from apps.adresa.models import Dom, FotoDoma
 
 
@@ -20,6 +20,8 @@ class DomAdmin(ImportExportModelAdmin):
     ]
     inlines = [
         FotoDomaInline,
+        VideoDomaInline,
+        FailDomaInline,
     ]
     autocomplete_fields = ['uliza', ]
     list_display_links = [
