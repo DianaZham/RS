@@ -1,12 +1,12 @@
 import React, {FC} from 'react'
-import {Calendar as BigCalendar, momentLocalizer} from 'react-big-calendar'
+import {momentLocalizer} from 'react-big-calendar'
 import moment from 'moment'
 import {ruFormats} from './ru-formats'
 import {ruMessages} from './ru-messages'
-import 'react-big-calendar/lib/css/react-big-calendar.css'
+import {StyledCalendar} from './styled'
 
 const Calendar: FC = () => {
-    return <BigCalendar
+    return <StyledCalendar
         localizer={momentLocalizer(moment)}
         style={{height: 500}}
         messages={ruMessages}
