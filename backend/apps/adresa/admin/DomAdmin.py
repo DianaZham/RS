@@ -1,6 +1,7 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
 
+from apps.adresa.admin import FotoDomaInline
 from apps.adresa.models import Dom, FotoDoma
 
 
