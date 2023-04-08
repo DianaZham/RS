@@ -10,6 +10,16 @@ const Button = styled.button`
 	font-weight: ${({theme}) => theme.font.desktop['button-large'].weight};
 	font-size:  ${({theme}) => theme.font.desktop['button-large'].size}px;
 	color: ${({theme}) => theme.colors.neutral.black};
+
+	&:hover {
+		background: ${({theme}) => theme.colors.primary.light};
+		box-shadow: ${({theme}) => theme.shadow.medium};
+	}
+
+	&:active {
+		background: ${({theme}) => theme.colors.primary.extraDark};
+		box-shadow: ${({theme}) => theme.shadow.small};
+	}
 `
 
 export default Button
