@@ -1,5 +1,6 @@
 import React, {FC} from 'react'
-import {Breadcrumbs, Calendar, Tab, Tabs, Text} from '../../share'
+import {Breadcrumbs, Calendar, Link, Tab, Tabs, Text} from '../../share'
+import {Path} from '../../app'
 
 const HomePage: FC = () => (
     <div>
@@ -10,9 +11,8 @@ const HomePage: FC = () => (
             <Tab label="Tertiary">Im stupid</Tab>
         </Tabs>
         <Breadcrumbs>
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
+            <Link to={Path.Home}>Home</Link>
+            <Link to={Path.Other}>Other</Link>
         </Breadcrumbs>
         <Calendar/>
     </div>
