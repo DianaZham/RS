@@ -15,7 +15,7 @@ export const StyledVerticalNavigationMenu = styled.nav`
 `
 
 export const NavigationLink = styled(Link)<NavigationLinkProps>`
-  color: ${({theme, $isActive = false}) => $isActive ? theme.colors.tertiary.extraLight : theme.colors.neutral.white};
+  color: ${({theme, $isActive = false}) => $isActive ? theme.colors.notification.warning : theme.colors.neutral.white};
 
   &:hover {
     color: ${({theme}) => theme.colors.tertiary.extraDark};
