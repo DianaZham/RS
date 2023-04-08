@@ -1,12 +1,17 @@
 import React, {FC} from 'react'
 import {Outlet} from 'react-router-dom'
+import {StyledContentWrapper, StyledLayoutWrapper} from './stlyed-layout'
+import {VerticalNavigationMenu} from '../widgets/navigation'
 
 const Layout: FC = () => (
-    <div>
-        <h1>Layout</h1>
-        <Outlet/>
-    </div>
+    <StyledLayoutWrapper>
+        <VerticalNavigationMenu/>
+        <StyledContentWrapper>
+            <Outlet/>
+        </StyledContentWrapper>
+    </StyledLayoutWrapper>
 )
+
 
 Layout.displayName = 'Layout'
 

@@ -67,7 +67,7 @@ const ApplicationTheme: DefaultTheme = {
             extraDark: '#F26C0C',
             dark: '#FF661A',
             light: '#FF9040',
-            extraLight: '#FFA96A'
+            extraLight: '#f6cb8a'
         },
         neutral: {
             black: '#17181A',

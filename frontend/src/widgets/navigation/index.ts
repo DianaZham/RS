@@ -1,0 +1,1 @@
+export {VerticalNavigationMenu} from './ui'
