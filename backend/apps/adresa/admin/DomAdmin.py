@@ -3,10 +3,7 @@ from import_export.admin import ImportExportModelAdmin
 
 from apps.adresa.models import Dom, FotoDoma
 
-class FotoDomaInline(admin.TabularInline):
-    model = FotoDoma
-    extra = 0
-    autocomplete_fields = ['dom']
+
 
 
 @admin.register(Dom)

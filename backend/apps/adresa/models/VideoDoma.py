@@ -5,13 +5,13 @@ from django.template.defaultfilters import safe
 from apps.adresa.models import Dom
 
 
-class FotoDoma(models.Model):
+class VideoDoma(models.Model):
     class Meta():
-        verbose_name = 'Фото дома'
-        verbose_name_plural = 'Фото дома'
+        verbose_name = 'Видео дома'
+        verbose_name_plural = 'Видео дома'
 
-    foto = models.ImageField('Фото', )
-    data = models.DateField('Дата фото', null=True, blank=True)
+    video = models.FileField('Видео', )
+    data = models.DateField('Дата видео', null=True, blank=True)
     dom = models.ForeignKey(Dom, null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
