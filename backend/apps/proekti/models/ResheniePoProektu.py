@@ -1,7 +1,7 @@
 from django.db import models
 
 from apps.adresa.models import Dom
-from apps.proekti.models import Proekt, TipResheniaPoProektu, UchastnikRabochaiaGruppa
+from apps.proekti.models import Proekt, TipResheniaPoProektu, UchastnikRabochaiaGruppa, StatusIspolnenia
 
 
 class ResheniePoProektu(models.Model):
@@ -15,7 +15,7 @@ class ResheniePoProektu(models.Model):
     primechanie_po_resheniu = models.TextField('Примечание по решению', null=True, blank=True)
     data_priniatia_reshenia = models.DateField('Дата принятия решения', null=True, blank=True)
     data_ispolnenia_po_resheniyu =  models.DateField('Дата для исполненения решения', null=True, blank=True)
-    status_ispolnenia = models.IntegerField('Статус исполения решения', null=True, blank=True)
+    status_ispolnenia = models.ForeignKey(StatusIspolnenia, verbose_name='Статус исполения решения', null=True, blank=True, on_delete=models.SET_NULL)
 
     otvestveni = models.ForeignKey(UchastnikRabochaiaGruppa, verbose_name="Отвественный", null=True, blank=True, on_delete=models.SET_NULL)
 
