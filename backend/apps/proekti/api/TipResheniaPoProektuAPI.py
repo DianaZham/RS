@@ -3,41 +3,41 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from apps.adresa.models import NaseleniPunkt
-from apps.adresa.serializers.NaseleniPunktSerializer import NaseleniPunktSerializer
+from apps.proekti.models import TipResheniaPoProektu
+from apps.proekti.serializers import TipResheniaPoProektuSerializer
 
 
-class NaseleniPunktLV(APIView):
+class TipResheniaPoProektuLV(APIView):
     def get(self, request, format=None):
-        snippets = NaseleniPunkt.objects.all()
-        serializer = NaseleniPunktSerializer(snippets, many=True)
+        snippets = TipResheniaPoProektu.objects.all()
+        serializer = TipResheniaPoProektuSerializer(snippets, many=True)
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        serializer = NaseleniPunktSerializer(data=request.data)
+        serializer = TipResheniaPoProektuSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class NaseleniPunktDV(APIView):
+class TipResheniaPoProektuDV(APIView):
 
     def get_object(self, pk):
         try:
-            return NaseleniPunkt.objects.get(pk=pk)
-        except NaseleniPunkt.DoesNotExist:
+            return TipResheniaPoProektu.objects.get(pk=pk)
+        except TipResheniaPoProektu.DoesNotExist:
             raise Http404
 
     def get(self, request, id, format=None):
 
-        naseleni_punkt = self.get_object(pk=id)
-        serializer = NaseleniPunktSerializer(naseleni_punkt, many=False)
+        tip_reshenia_po_proektu = self.get_object(pk=id)
+        serializer = TipResheniaPoProektuSerializer(tip_reshenia_po_proektu, many=False)
         return Response(serializer.data)
 
     def put(self, request, pk, format=None):
         snippet = self.get_object(pk)
-        serializer = NaseleniPunktSerializer(snippet, data=request.data)
+        serializer = TipResheniaPoProektuSerializer(snippet, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)

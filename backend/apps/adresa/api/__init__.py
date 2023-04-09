@@ -4,8 +4,8 @@ from .UlizaAPI import UlizaDV
 from .UlizaAPI import UlizaLV
 from .FotoDomaAPI import FotoDomaDV
 from .FotoDomaAPI import FotoDomaLV
-from .FailiDomaAPI import FailiDomaDV
-from .FailiDomaAPI import FailiDomaLV
+from .FailDomaAPI import FailDomaDV
+from .FailDomaAPI import FailDomaLV
 from .VideoDomaAPI import VideoDomaDV
 from .VideoDomaAPI import VideoDomaLV
 from .NaseleniPunktAPI import NaseleniPunktDV

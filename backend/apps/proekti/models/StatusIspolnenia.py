@@ -1,8 +1,5 @@
 from django.db import models
 
-from apps.adresa.models import Dom
-
-
 class StatusIspolnenia(models.Model):
     class Meta():
         verbose_name = 'Статус исполнения'
