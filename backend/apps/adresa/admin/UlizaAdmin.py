@@ -18,7 +18,7 @@ class UlizaAdmin(ImportExportModelAdmin):
     ]
     search_fields = [
         'id',
-        'name',
+        'naseleni_punkt',
         'naseleni_punkt__name',
     ]
     list_filter = ['naseleni_punkt']

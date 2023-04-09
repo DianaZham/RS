@@ -1,6 +1,7 @@
 from django.db import models
 from apps.adresa.models import NaseleniPunkt
 
+
 class Uliza(models.Model):
     class Meta():
         verbose_name = 'Улица'
@@ -11,4 +12,4 @@ class Uliza(models.Model):
 
 
     def __str__(self):
-        return f"{self.naseleni_punkt.name or ''} {self.name or '-'}"
+        return f"{self.name or '-'}"
