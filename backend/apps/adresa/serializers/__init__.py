@@ -8,3 +8,5 @@ from .OkrugSerializer import OkrugSerializer
 from .RayonSerializer import RayonSerializer
 from .TipObectaSerializer import TipObectaSerializer
 from .SostoyanieDomaSerializer import SostoyanieDomaSerializer
+from .DopPoleDomaSerializer import DopPoleDomaSerializer
+from .DopPoleNaDomeSerializer import DopPoleNaDomeSerializer

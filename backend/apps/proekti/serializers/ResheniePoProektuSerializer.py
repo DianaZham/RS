@@ -6,4 +6,4 @@ from apps.proekti.models import ResheniePoProektu
 class ResheniePoProektuSerializer(serializers.ModelSerializer):
     class Meta:
         model = ResheniePoProektu
-        fields = '__all_'
+        fields = '__all__'

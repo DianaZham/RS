@@ -6,8 +6,7 @@ import {
     ProjectInPendingCard,
     ProjectsByTypeDoughnut,
     ProjectsByTypeList,
-    ProjectsInProgressCard,
-    ProjectsRegistryTable
+    ProjectsInProgressCard
 } from '../../widgets/metric'
 import {StyledPageRow, StyledPageWrapper} from '../styled'
 import {RegistryTable} from '../../widgets/registry'
@@ -23,15 +22,15 @@ const RegistryPage: FC = () => (
         </StyledPageRow>
         
         <StyledPageRow>
+            <RegistryTable/>
+        </StyledPageRow>
+        
+        <StyledPageRow>
             <ProjectsByTypeList/>
             <ProjectsByTypeDoughnut/>
             <LastProjectsList/>
         </StyledPageRow>
-        
-        <StyledPageRow>
-            <ProjectsRegistryTable/>
-            <RegistryTable/>
-        </StyledPageRow>
+    
     
     </StyledPageWrapper>
 )

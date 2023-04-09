@@ -1,9 +1,6 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit'
-import modalReducer from '../../entities/modal/model/slice/modalSlice'
 
-const rootReducer = combineReducers({
-    modalReducer
-})
+const rootReducer = combineReducers({})
 
 export const store = configureStore({
     reducer: {rootReducer}

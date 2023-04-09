@@ -3,6 +3,8 @@ export const enum Path {
     Map = 'map/',
     Calendar = 'calendar/',
     XML = 'xml/',
-    Login = 'login/'
+    Login = 'login/',
+    Project = 'project/:id',
+    Building = 'building/:id'
 }
 

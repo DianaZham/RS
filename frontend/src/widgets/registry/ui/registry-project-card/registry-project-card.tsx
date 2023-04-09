@@ -1,13 +1,15 @@
 import {Box as MUIBox, Collapse, IconButton, Table, TableBody, TableCell, TableHead, TableRow} from '@mui/material'
 import React, {FC, useState} from 'react'
-import {Text} from '../../../../share'
+import {AiOutlineMinus, AiOutlinePlus} from 'react-icons/ai'
+import {Headline} from '../../../../share'
+import {ControlDate, Project} from '../../../../entities/project'
 
-type RowData = {
-    field: number | string
+type RowType = {
+    project: Project & { nextControlDate: ControlDate }
 }
 
-const RegistryProjectCard: FC<RowData> = ({
-    field
+const RegistryProjectCard: FC<RowType> = ({
+    project
 }) => {
     const [isOpen, setIsOpen] = useState(false)
     return (
@@ -19,53 +21,44 @@ const RegistryProjectCard: FC<RowData> = ({
                         size="small"
                         onClick={() => setIsOpen(!isOpen)}
                     >
-                        {isOpen ? '-' : '+'}
+                        {isOpen ? <AiOutlineMinus/> : <AiOutlinePlus/>}
                     </IconButton>
                 </TableCell>
-                <TableCell component="th" scope="row">
-                    {field}
-                </TableCell>
-                <TableCell align="right">{field}</TableCell>
-                <TableCell align="right">{field}</TableCell>
-                <TableCell align="right">{field}</TableCell>
-                <TableCell align="right">{field}</TableCell>
+                <TableCell component="th" scope="row">{project.number}</TableCell>
+                <TableCell align="right">{project.status}</TableCell>
+                <TableCell align="right">{project.constructionArea}</TableCell>
+                <TableCell align="right">{project.nextControlDate.date.toDateString()}</TableCell>
+                <TableCell align="right">{project.accountable}</TableCell>
             </TableRow>
             
             <TableRow>
                 <TableCell style={{paddingBottom: 0, paddingTop: 0}} colSpan={6}>
                     <Collapse in={isOpen} timeout="auto" unmountOnExit>
                         <MUIBox sx={{margin: 1}}>
-                            <Text>
-                                History
-                            </Text>
-                            
+                            <Headline $size="small">Объекты проекта: </Headline>
                             <Table size="small" aria-label="purchases">
-                                
                                 <TableHead>
                                     <TableRow>
-                                        <TableCell>Date</TableCell>
-                                        <TableCell>Customer</TableCell>
-                                        <TableCell align="right">Amount</TableCell>
-                                        <TableCell align="right">Total price ($)</TableCell>
+                                        <TableCell>Улица</TableCell>
+                                        <TableCell>Площадь</TableCell>
+                                        <TableCell align="right">Вид объекта</TableCell>
+                                        <TableCell align="right">Состояние дома</TableCell>
+                                        <TableCell align="right">Владелец здания</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 
                                 <TableBody>
-                                    
-                                    {/*{row.history.map((historyRow) => (*/}
-                                    {/*    <TableRow key={historyRow.date}>*/}
-                                    {/*        <TableCell component="th" scope="row">*/}
-                                    {/*            {historyRow.date}*/}
-                                    {/*        </TableCell>*/}
-                                    {/*        <TableCell>{historyRow.customerId}</TableCell>*/}
-                                    {/*        <TableCell align="right">{historyRow.amount}</TableCell>*/}
-                                    {/*        <TableCell align="right">*/}
-                                    {/*            {Math.round(historyRow.amount * row.price * 100) / 100}*/}
-                                    {/*        </TableCell>*/}
-                                    {/*    </TableRow>*/}
-                                    {/*))}*/}
-                                
+                                    {project.buildings.map((building) => (
+                                        <TableRow key={building.id}>
+                                            <TableCell>{building.address}</TableCell>
+                                            <TableCell>{building.square}</TableCell>
+                                            <TableCell align="right">{building.type}</TableCell>
+                                            <TableCell align="right">{building.quality}</TableCell>
+                                            <TableCell align="right">{building.owner}</TableCell>
+                                        </TableRow>
+                                    ))}
                                 </TableBody>
+                                
                             </Table>
                         </MUIBox>
                     </Collapse>
