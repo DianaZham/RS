@@ -13,6 +13,7 @@ class UchastnikRabochaiaGruppa(models.Model):
     fio_uchastnika_gruppi = models.CharField('ФИО участника', max_length=255, null=True)
     dolznost_uchastnika_gruppi = models.CharField('Должность участника', max_length=255, null=True)
     user = models.ForeignKey(User, verbose_name='Пользователь', null=True, blank=True, on_delete=models.SET_NULL)
+    is_otvestveni = models.BooleanField('Отвественный', default=False)
 
     def __str__(self):
         return self.fio_uchastnika_gruppi
