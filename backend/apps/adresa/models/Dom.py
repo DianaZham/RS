@@ -43,3 +43,9 @@ class Dom(models.Model):
                     if self.uliza.rayon.naseleni_punkt.okrug:
                         okrug = self.uliza.rayon.naseleni_punkt.okrug.name + ','
         return f'{okrug} {naseleni_punkt} {rayon} {uliza} {self.name or ""}'
+
+    def get_rayon(self):
+        if self.uliza:
+            if self.uliza.rayon:
+                return self.uliza.rayon
+        return None

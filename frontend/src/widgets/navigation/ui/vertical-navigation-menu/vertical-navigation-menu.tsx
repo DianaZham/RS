@@ -1,5 +1,5 @@
 import React, {FC} from 'react'
-import {BsCalendarHeart, BsMap, BsTable} from 'react-icons/bs'
+import {BsCalendarHeart, BsFiletypeXml, BsMap, BsTable} from 'react-icons/bs'
 import {NavigationLink, StyledNavigationBlock, StyledVerticalNavigationMenu} from './styled'
 import {Path} from '../../../../app'
 import {UserInfoCard} from '../../../../entities/user'
@@ -23,6 +23,11 @@ const VerticalNavigationMenu: FC = () => {
                 to={Path.Calendar}
             ><BsCalendarHeart/> Календарь событий
             </NavigationLink>
+            <NavigationLink
+                to={Path.XML}
+            ><BsFiletypeXml/> XML api/экспорт
+            </NavigationLink>
+            
         </StyledVerticalNavigationMenu>
     )
 }
