@@ -4,3 +4,5 @@ from .UchastnikRabochaiaGruppaSerializer import UchastnikRabochaiaGruppaSerializ
 from .ResheniePoProektuSerializer import ResheniePoProektuSerializer
 from .TipResheniaPoProektuSerializer import TipResheniaPoProektuSerializer
 from .ProektSerializer import ProektSerializer
+from .DopPoleProektaSerializer import DopPoleProektaSerializer
+from .DopPoleNaProekteSerializer import DopPoleNaProekteSerializer
