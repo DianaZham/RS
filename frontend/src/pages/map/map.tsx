@@ -1,13 +1,16 @@
 import React, {FC} from 'react'
-import {ProjectInPendingCard} from '../../widgets/project-in-pending'
-import {CloseProjectPerMonth} from '../../widgets/close-project-per-month'
-import {DeadlineProject} from '../../widgets/deadline-project'
-import {ProjectsByTypeDoughnut, ProjectsByTypeList} from '../../widgets/projects-by-type'
-import {ProjectsInProgressCard} from '../../widgets/projects-in-progress'
-import {LastProjectsList} from '../../widgets/last-projects'
+import {
+    CloseProjectPerMonth,
+    DeadlineProject,
+    LastProjectsList,
+    ProjectInPendingCard,
+    ProjectsByTypeDoughnut,
+    ProjectsByTypeList,
+    ProjectsInProgressCard,
+    ProjectsMap
+} from '../../widgets/metric'
+
 import {StyledPageRow, StyledPageWrapper} from '../styled'
-import {ProjectsMap} from '../../widgets/projects-map'
-import {Accordion} from '@mui/material'
 
 const MapPage: FC = () => (
     <StyledPageWrapper>
@@ -24,9 +27,6 @@ const MapPage: FC = () => (
         </StyledPageRow>
         <StyledPageRow>
             <ProjectsMap/>
-            <Accordion>
-                123
-            </Accordion>
         </StyledPageRow>
     </StyledPageWrapper>
 )
