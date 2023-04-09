@@ -3,8 +3,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from apps.vladelzi_zdani.models import TipVladelza
-from apps.vladelzi_zdani.serializers.TipVladelzaSerializer import TipVladelzaSerializer
-
+from apps.vladelzi_zdani.serializers import TipVladelzaSerializer
 
 class TipVladelzaLV(APIView):
     def get(self, request, format=None):

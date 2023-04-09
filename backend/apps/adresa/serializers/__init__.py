@@ -5,3 +5,6 @@ from .FotoDomaSerializer import FotoDomaSerializer
 from .VideoDomaSerializer import VideoDomaSerializer
 from .NaseleniPunktSerializer import NaseleniPunktSerializer
 from .OkrugSerializer import OkrugSerializer
+from .RayonSerializer import RayonSerializer
+from .TipObectaSerializer import TipObectaSerializer
+from .SostoyanieDomaSerializer import SostoyanieDomaSerializer

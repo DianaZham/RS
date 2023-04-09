@@ -10,3 +10,9 @@ from .VideoDomaAPI import VideoDomaDV
 from .VideoDomaAPI import VideoDomaLV
 from .NaseleniPunktAPI import NaseleniPunktDV
 from .NaseleniPunktAPI import NaseleniPunktLV
+from .RayonAPI import RayonDV
+from .RayonAPI import RayonLV
+from .TipObectaAPI import TipObectaDV
+from .TipObectaAPI import TipObectaLV
+from .SostoyanieDomaAPI import SostoyanieDomaDV
+from .SostoyanieDomaAPI import SostoyanieDomaLV

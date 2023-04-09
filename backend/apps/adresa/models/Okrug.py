@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Okrug(models.Model):
     class Meta():
         verbose_name = 'Округ'

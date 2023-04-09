@@ -1,9 +1,5 @@
-import uuid
 from django.db import models
-from django.template.defaultfilters import safe
-
 from apps.adresa.models import Dom
-
 
 class VideoDoma(models.Model):
     class Meta():
