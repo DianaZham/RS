@@ -2,11 +2,9 @@ import os
 
 from django.http import HttpResponseRedirect
 from docxtpl import DocxTemplate
-from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from apps.adresa.models import Dom
-from apps.proekti.models import SoglosovaniePoProektu
 from core.settings import BASE_DIR, MEDIA_ROOT
 
 
