@@ -12,6 +12,7 @@ import {
 
 import {StyledPageRow, StyledPageWrapper} from '../styled'
 
+
 const MapPage: FC = () => (
     <StyledPageWrapper>
         <StyledPageRow>
