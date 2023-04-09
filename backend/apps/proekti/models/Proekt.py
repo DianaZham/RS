@@ -1,6 +1,5 @@
 from django.db import models
 
-from apps.adresa.models import Dom
 from apps.proekti.models import TipResheniaPoProektu
 
 
@@ -10,8 +9,9 @@ class Proekt(models.Model):
         verbose_name_plural = 'Проект'
 
     vnutrinii_nomer = models.CharField('Внутренний номер', max_length=255, null=True, blank=True )
-    dom = models.ForeignKey(Dom, verbose_name='Дом', on_delete=models.PROTECT)
-    tip_reshenia_po_proektu = models.ForeignKey(TipResheniaPoProektu, on_delete=models.SET_NULL, null=True, blank=True)
+    data_nachala_proekta = models.DateField('Дата начала проекта', null=True, blank=True )
+    primechanie = models.TextField('Примечание', null=True, blank=True )
+
 
     # Что с ним делать
     # Кто делать будет

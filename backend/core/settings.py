@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'import_export',
     'apps.adresa',
     'apps.vladelzi_zdani',
+    'apps.proekti',
 ]
 
 MIDDLEWARE = [
