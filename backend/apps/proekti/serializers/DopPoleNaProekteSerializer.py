@@ -6,4 +6,4 @@ from apps.proekti.models import DopPoleNaProekte
 class DopPoleNaProekteSerializer(serializers.ModelSerializer):
     class Meta:
         model = DopPoleNaProekte
-        fields = '__all___'
+        fields = '__all__'
