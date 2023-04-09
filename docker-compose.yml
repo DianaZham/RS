@@ -1,0 +1,16 @@
+version: '3.5'
+
+
+services:
+  server:
+    container_name: rs_server
+    build: .
+    volumes:
+      - ./backend:/backend
+    ports:
+      - "8060:8060"
+
+# контейнера базы нет, так как есть sqlite3  база с уже заполненными данными
+# контейнера фронта нет, так как фронт билдим и бек билд подтягивает
+
+
