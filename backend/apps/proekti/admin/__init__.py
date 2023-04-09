@@ -4,4 +4,4 @@ from .StatusIspolneniaAdmin import StatusIspolneniaAdmin
 from .ProektAdmin import ProektAdmin
 
 from .TipResheniaPoProektuAdmin import TipResheniaPoProektuAdmin
-# from .UchastnikRabochaiaGruppaAdmin import UchastnikRabochaiaGruppaAdmin
+from .UchastnikRabochaiaGruppaAdmin import UchastnikRabochaiaGruppaAdmin

@@ -1,27 +1,44 @@
-import styled, {css} from 'styled-components'
+import styled from 'styled-components'
 import {Link} from '../../../../share'
 
-type NavigationLinkProps = {
-    $isActive?: boolean
-}
 
 export const StyledVerticalNavigationMenu = styled.nav`
   display: flex;
   flex-direction: column;
-  padding: ${({theme}) => theme.spacing['sp-8']}px;
-  gap: ${({theme}) => theme.spacing['sp-2']}px;
-  box-shadow: ${({theme}) => theme.shadow.large};
-  background: ${({theme}) => `linear-gradient(${theme.colors.primary.extraDark}, ${theme.colors.primary.dark}, ${theme.colors.secondary.extraLight})`};
+  align-items: center;
+  min-width: 250px;
+  min-height: 100vh;
+  box-shadow: ${({theme}) => theme.shadow['large-2']};
+  background: ${({theme}) => theme.colors.neutral.white};
 `
 
-export const NavigationLink = styled(Link)<NavigationLinkProps>`
-  color: ${({theme, $isActive = false}) => $isActive ? theme.colors.notification.warning : theme.colors.neutral.white};
+export const NavigationLink = styled(Link)`
+  display: flex;
+  justify-content: flex-start;
+  gap: ${({theme}) => theme.spacing['sp-2']}px;
+  width: 100%;
+  color: ${({theme}) => theme.colors.neutral.black};
+  padding: ${({theme}) => theme.spacing['sp-1']}px 0;
+  padding-left: ${({theme}) => theme.spacing['sp-3']}px;
 
   &:hover {
     color: ${({theme}) => theme.colors.tertiary.extraDark};
+    background: ${({theme}) => theme.colors.neutral.grayLight};
   }
 
-  ${({$isActive}) => $isActive && css`
+  &.active {
+    color: ${({theme}) => theme.colors.tertiary.dark};
     box-shadow: ${({theme}) => theme.shadow.large};
-  `}
+  }
+
+`
+
+export const StyledNavigationBlock = styled.div`
+  background: ${({theme}) => theme.colors.neutral.grayLight};
+  color: ${({theme}) => theme.colors.neutral.black};
+  width: 100%;
+  text-align: center;
+  padding: ${({theme}) => theme.spacing['sp-1']}px;
+  margin-bottom: ${({theme}) => theme.spacing['sp-3']}px;
+  font-size: ${({theme}) => theme.font.desktop['text-small'].size}px;
 `

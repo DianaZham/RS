@@ -36,12 +36,10 @@ class Dom(models.Model):
         uliza = ''
         if self.uliza:
             uliza = self.uliza.name
-            if self.uliza.naseleni_punkt:
-                naseleni_punkt = self.uliza.naseleni_punkt.name
-                if self.uliza.naseleni_punkt.rayon:
-                    rayon = self.uliza.naseleni_punkt.rayon.name
-                    if rayon == 'Москва':
-                        rayon = ''
-                    if self.uliza.naseleni_punkt.rayon.okrug:
-                        okrug = self.uliza.naseleni_punkt.rayon.okrug.name
-        return f'{okrug} {rayon} {naseleni_punkt} {uliza} {self.name or ""}'
+            if self.uliza.rayon:
+                rayon = self.uliza.rayon.name
+                if self.uliza.rayon.naseleni_punkt:
+                    naseleni_punkt = self.uliza.rayon.naseleni_punkt.name
+                    if self.uliza.rayon.naseleni_punkt.okrug:
+                        okrug = self.uliza.rayon.naseleni_punkt.okrug.name
+        return f'{okrug} {naseleni_punkt} {rayon} {uliza} {self.name or ""}'

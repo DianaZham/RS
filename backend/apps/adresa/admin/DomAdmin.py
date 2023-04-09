@@ -23,7 +23,7 @@ class DomAdmin(ImportExportModelAdmin):
         VideoDomaInline,
         FailDomaInline,
     ]
-    autocomplete_fields = ['uliza', ]
+    autocomplete_fields = ['uliza', 'vladelez_zdania', 'zastroyshik', 'tip_obecta', 'sostoyanie_doma']
     list_display_links = [
         'id',
         'uliza',
@@ -32,9 +32,9 @@ class DomAdmin(ImportExportModelAdmin):
     search_fields = [
         'id',
         'uliza__name',
-        'uliza__naseleni_punkt__name',
+        'uliza__rayon__name',
         'name',
     ]
-    list_filter = ['uliza__naseleni_punkt', 'sostoyanie_doma__name', 'tip_obecta__name', 'uliza']
+    list_filter = ['uliza__rayon', 'sostoyanie_doma__name', 'tip_obecta__name', 'uliza']
     save_as = True
     save_on_top = True

@@ -1,1 +1,1 @@
-export {default as Input} from './input'
+export {TextField, PasswordField, SubmitButton} from './input'

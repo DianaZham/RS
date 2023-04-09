@@ -8,17 +8,18 @@ from apps.adresa.models import  Uliza
 class UlizaAdmin(ImportExportModelAdmin):
     list_display = [
         'id',
-        'naseleni_punkt',
+        'rayon',
         'name',
     ]
+    autocomplete_fields = ['rayon']
     list_display_links = [
         'id',
-        'naseleni_punkt',
+        'rayon',
         'name',
     ]
     search_fields = [
         'id',
-        'naseleni_punkt',
-        'naseleni_punkt__name',
+        'rayon',
+        'rayon__name',
     ]
-    list_filter = ['naseleni_punkt']
+    list_filter = ['rayon']

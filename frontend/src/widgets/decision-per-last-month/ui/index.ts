@@ -1,0 +1,1 @@
+export {DecisionPerLastMonth} from './decision-per-last-month-bar-chart'

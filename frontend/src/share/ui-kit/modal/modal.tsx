@@ -1,20 +1,25 @@
-
-import React, {FC} from 'react'
+import React, {FC, MouseEventHandler, ReactNode} from 'react'
 import ReactDOM from 'react-dom'
-import StyledModal from './styledModal'
-import StyledModalContent from './styledModalContent'
+import {StyledModal, StyledModalContent} from './styled'
 
 type ModalProps = {
-    children: any,
-    onClose: () => void,
-    isModal: boolean
+    children: ReactNode,
+    isOpen?: boolean
+    onClose?: () => void
 }
 
-const Modal: FC<ModalProps> = ({children, onClose, isModal}) => {
-    if (!isModal) return null
-    return (ReactDOM.createPortal(    
+const Modal: FC<ModalProps> = ({
+    children,
+    onClose,
+    isOpen = false
+}) => {
+    if (!isOpen) return null
+
+    const contentClickHandler: MouseEventHandler = (e) => e.stopPropagation()
+
+    return (ReactDOM.createPortal(
         <StyledModal onClick={onClose}>
-            <StyledModalContent onClick={e => e.stopPropagation()}>
+            <StyledModalContent $color="rgb(247, 248, 250)" onClick={contentClickHandler}>
                 {children}
             </StyledModalContent>
         </StyledModal>,

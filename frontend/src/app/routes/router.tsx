@@ -3,15 +3,32 @@ import {createBrowserRouter} from 'react-router-dom'
 
 import {Path} from './path'
 import {GlobalLayout} from '../../pages'
-import {HomePage} from '../../pages/home'
+import {RegistryPage} from '../../pages/registry'
+import {MapPage} from '../../pages/map'
+import {CalendarPage} from '../../pages/calendar'
+import {LoginPage} from '../../pages/login'
 
 export const router = createBrowserRouter([
     {
-        path: Path.Home,
+        path: Path.Registry,
         element: <GlobalLayout/>,
-        children: [{
-            path: Path.Home,
-            element: <HomePage/>
-        }]
+        children: [
+            {
+                path: Path.Registry,
+                element: <RegistryPage/>
+            },
+            {
+                path: Path.Map,
+                element: <MapPage/>
+            },
+            {
+                path: Path.Calendar,
+                element: <CalendarPage/>
+            }
+        ]
+    },
+    {
+        path: Path.Login,
+        element: <LoginPage/>
     }
 ])
