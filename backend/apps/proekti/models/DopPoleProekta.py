@@ -1,9 +1,6 @@
 
 from django.db import models
 
-from apps.adresa.models import Dom
-
-
 class DopPoleProekta(models.Model):
     class Meta():
         verbose_name = 'Доп поле для проекта'

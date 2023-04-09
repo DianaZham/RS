@@ -1,7 +1,7 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
 
-from apps.proekti.admin import ResheniePoProektuInline, UchastnikRabochaiaGruppaInline
+from apps.proekti.admin import ResheniePoProektuInline, UchastnikRabochaiaGruppaInline, DopPoleNaProekteInline
 from apps.proekti.models import Proekt
 
 @admin.register(Proekt)
@@ -14,7 +14,8 @@ class ProektAdmin(ImportExportModelAdmin):
     ]
     inlines = [
         ResheniePoProektuInline,
-        UchastnikRabochaiaGruppaInline
+        UchastnikRabochaiaGruppaInline,
+        DopPoleNaProekteInline
     ]
     list_display_links = [
         'id',
