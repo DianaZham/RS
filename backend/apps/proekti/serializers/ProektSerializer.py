@@ -4,7 +4,6 @@ from apps.proekti.models import Proekt
 
 
 class ProektSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Proekt
         fields = [
@@ -12,13 +11,14 @@ class ProektSerializer(serializers.ModelSerializer):
             'vnutrinii_nomer',
             'status',
             'raioni',
-            # 'blizaishaia_data',
+            'blizaishaia_data',
             'otvestvenie',
             'doma'
         ]
 
     status = serializers.SerializerMethodField()
     raioni = serializers.SerializerMethodField()
+    blizaishaia_data = serializers.SerializerMethodField()
     otvestvenie = serializers.SerializerMethodField()
     doma = serializers.SerializerMethodField()
 
@@ -41,15 +41,20 @@ class ProektSerializer(serializers.ModelSerializer):
             spisok_otvestvennih.append(i.fio_uchastnika_gruppi)
         return spisok_otvestvennih
 
+    def get_blizaishaia_data(self, obj):
+        return obj.resheniepoproektu_set.all() \
+            .order_by('data_ispolnenia_po_resheniyu') \
+            .first() \
+            .data_ispolnenia_po_resheniyu
 
     def get_doma(self, obj):
         result = []
         for i in obj.resheniepoproektu_set.all():
             result.append({
-                'adres':i.dom.get_full_adres(),
-                'ploshad':i.dom.ploshad,
+                'adres': i.dom.get_full_adres(),
+                'ploshad': i.dom.ploshad,
                 'tip_obekta': i.dom.tip_obecta.name if i.dom.tip_obecta else None,
-                'sostoyanie_doma':i.dom.sostoyanie_doma.name if i.dom.sostoyanie_doma else None,
-                'vladelez_doma':i.dom.vladelez_zdania.name if i.dom.vladelez_zdania else None,
+                'sostoyanie_doma': i.dom.sostoyanie_doma.name if i.dom.sostoyanie_doma else None,
+                'vladelez_doma': i.dom.vladelez_zdania.name if i.dom.vladelez_zdania else None,
             })
         return result
