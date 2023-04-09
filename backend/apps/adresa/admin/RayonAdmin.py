@@ -9,15 +9,15 @@ class RayonAdmin(ImportExportModelAdmin):
     list_display = [
         'id',
         'name',
-        'okrug',
+        'naseleni_punkt',
     ]
     list_display_links = [
         'id',
         'name',
-        'okrug',
+        'naseleni_punkt',
     ]
     search_fields = [
         'id',
         'name',
-        'okrug',
+        'naseleni_punkt',
     ]
