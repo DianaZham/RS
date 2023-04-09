@@ -1,4 +1,5 @@
 from django.http import Http404
+from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -11,6 +12,13 @@ class OkrugLV(APIView):
         snippets = Okrug.objects.all()
         serializer = OkrugSerializer(snippets, many=True)
         return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = OkrugSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class OkrugDV(APIView):
@@ -26,3 +34,16 @@ class OkrugDV(APIView):
         okrug = self.get_object(pk=id)
         serializer = OkrugSerializer(okrug, many=False)
         return Response(serializer.data)
+
+    def put(self, request, pk, format=None):
+        snippet = self.get_object(pk)
+        serializer = OkrugSerializer(snippet, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        snippet = self.get_object(pk)
+        snippet.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
