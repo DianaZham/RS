@@ -1,7 +1,7 @@
 from django.db import models
 
-from apps.adresa.models import Uliza
-from apps.vladelzi_zdani.models import VladelezZdania
+from apps.adresa.models import Uliza, SostoyanieDoma, TipObecta
+from apps.vladelzi_zdani.models import VladelezZdania, Zastroyshik
 
 
 class Dom(models.Model):
@@ -17,10 +17,31 @@ class Dom(models.Model):
     lat = models.FloatField(null=True, blank=True)
     lon = models.FloatField(null=True, blank=True)
     json_dadata = models.TextField(null=True, blank=True)
-    vladelez_zdania = models.ForeignKey(VladelezZdania, verbose_name='Владелец здания', on_delete=models.SET_NULL, null=True, blank=True)
+    vladelez_zdania = models.ForeignKey(VladelezZdania, verbose_name='Владелец здания', on_delete=models.SET_NULL,
+                                        null=True, blank=True)
+    zastroyshik = models.ForeignKey(Zastroyshik, verbose_name='Застройщик', on_delete=models.SET_NULL, null=True,
+                                    blank=True)
+    tip_obecta = models.ForeignKey(TipObecta, verbose_name='Тип объекта', on_delete=models.SET_NULL, null=True,
+                                   blank=True)
+    sostoyanie_doma = models.ForeignKey(SostoyanieDoma, verbose_name='Состояние дома', on_delete=models.SET_NULL,
+                                        null=True, blank=True)
 
     def __str__(self):
         return self.get_full_adres()
 
     def get_full_adres(self):
-        return f'{self.uliza.naseleni_punkt.name} {self.uliza.name} {self.name}'
+        okrug = ''
+        naseleni_punkt = ''
+        rayon = ''
+        uliza = ''
+        if self.uliza:
+            uliza = self.uliza.name
+            if self.uliza.naseleni_punkt:
+                naseleni_punkt = self.uliza.naseleni_punkt.name
+                if self.uliza.naseleni_punkt.rayon:
+                    rayon = self.uliza.naseleni_punkt.rayon.name
+                    if rayon == 'Москва':
+                        rayon = ''
+                    if self.uliza.naseleni_punkt.rayon.okrug:
+                        okrug = self.uliza.naseleni_punkt.rayon.okrug.name
+        return f'{okrug} {rayon} {naseleni_punkt} {uliza} {self.name or ""}'

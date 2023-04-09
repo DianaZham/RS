@@ -9,12 +9,16 @@ class NaseleniPunktAdmin(ImportExportModelAdmin):
     list_display = [
         'id',
         'name',
+        'rayon',
     ]
+    autocomplete_fields = ['rayon']
     list_display_links = [
         'id',
         'name',
+        'rayon',
     ]
     search_fields = [
         'id',
         'name',
+        'rayon',
     ]

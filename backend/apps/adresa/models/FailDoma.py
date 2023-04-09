@@ -1,7 +1,4 @@
-import uuid
 from django.db import models
-from django.template.defaultfilters import safe
-
 from apps.adresa.models import Dom
 
 
@@ -15,4 +12,4 @@ class FailDoma(models.Model):
     dom = models.ForeignKey(Dom, null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return 'фото'
+        return 'файл'

@@ -4,15 +4,18 @@ import {RouterProvider} from 'react-router-dom'
 import {router} from './routes'
 import {ThemeProvider} from 'styled-components'
 import {ApplicationTheme} from './styles'
-
+import { Provider } from 'react-redux'
+import { store } from './store/store'
 
 const App: FC = () => {
     return (
-        <>
-            <ThemeProvider theme={ApplicationTheme}>
-                <GlobalStyles/>
-                <RouterProvider router={router}/>
-            </ThemeProvider>
+        <>	
+            <Provider store={store}>
+                <ThemeProvider theme={ApplicationTheme}>
+                    <GlobalStyles/>
+                    <RouterProvider router={router}/>
+                </ThemeProvider>
+            </Provider>
         </>
     )
 }
