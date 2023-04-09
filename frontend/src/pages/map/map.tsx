@@ -7,6 +7,7 @@ import {ProjectsInProgressCard} from '../../widgets/projects-in-progress'
 import {LastProjectsList} from '../../widgets/last-projects'
 import {StyledPageRow, StyledPageWrapper} from '../styled'
 import {ProjectsMap} from '../../widgets/projects-map'
+import {Accordion} from '@mui/material'
 
 const MapPage: FC = () => (
     <StyledPageWrapper>
@@ -23,6 +24,9 @@ const MapPage: FC = () => (
         </StyledPageRow>
         <StyledPageRow>
             <ProjectsMap/>
+            <Accordion>
+                123
+            </Accordion>
         </StyledPageRow>
     </StyledPageWrapper>
 )
