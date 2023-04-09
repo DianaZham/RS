@@ -13,6 +13,7 @@ class UchastnikRabochaiaGruppaAdmin(ImportExportModelAdmin):
         'dolznost_uchastnika_gruppi',
         'user',
     ]
+    autocomplete_fields = ['proekt', 'user']
     list_display_links = [
         'id',
         'proekt',

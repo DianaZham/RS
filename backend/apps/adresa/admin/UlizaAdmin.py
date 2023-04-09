@@ -11,6 +11,7 @@ class UlizaAdmin(ImportExportModelAdmin):
         'naseleni_punkt',
         'name',
     ]
+    autocomplete_fields = ['naseleni_punkt']
     list_display_links = [
         'id',
         'naseleni_punkt',
