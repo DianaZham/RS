@@ -37,9 +37,9 @@ class Dom(models.Model):
         if self.uliza:
             uliza = self.uliza.name
             if self.uliza.rayon:
-                rayon = self.uliza.rayon.name
+                rayon = self.uliza.rayon.name + ' район,'
                 if self.uliza.rayon.naseleni_punkt:
-                    naseleni_punkt = self.uliza.rayon.naseleni_punkt.name
+                    naseleni_punkt = self.uliza.rayon.naseleni_punkt.name + ','
                     if self.uliza.rayon.naseleni_punkt.okrug:
-                        okrug = self.uliza.rayon.naseleni_punkt.okrug.name
+                        okrug = self.uliza.rayon.naseleni_punkt.okrug.name + ','
         return f'{okrug} {naseleni_punkt} {rayon} {uliza} {self.name or ""}'
