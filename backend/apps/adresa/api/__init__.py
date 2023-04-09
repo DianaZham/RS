@@ -16,3 +16,7 @@ from .TipObectaAPI import TipObectaDV
 from .TipObectaAPI import TipObectaLV
 from .SostoyanieDomaAPI import SostoyanieDomaDV
 from .SostoyanieDomaAPI import SostoyanieDomaLV
+from .DopPoleDomaAPI import DopPoleDomaDV
+from .DopPoleDomaAPI import DopPoleDomaLV
+from .DopPoleNaDomeAPI import DopPoleNaDomeDV
+from .DopPoleNaDomeAPI import DopPoleNaDomeLV

@@ -1,22 +1,20 @@
 import React, {FC} from 'react'
-import {GlobalStyles} from './styles'
+import {ApplicationTheme, GlobalStyles} from './styles'
 import {RouterProvider} from 'react-router-dom'
 import {router} from './routes'
 import {ThemeProvider} from 'styled-components'
-import {ApplicationTheme} from './styles'
-import { Provider } from 'react-redux'
-import { store } from './store/store'
+import {Provider} from 'react-redux'
+import {store} from './store/store'
+import {AuthProvider} from './auth'
 
 const App: FC = () => {
     return (
-        <>	
-            <Provider store={store}>
-                <ThemeProvider theme={ApplicationTheme}>
-                    <GlobalStyles/>
-                    <RouterProvider router={router}/>
-                </ThemeProvider>
-            </Provider>
-        </>
+        <Provider store={store}>
+            <ThemeProvider theme={ApplicationTheme}>
+                <GlobalStyles/>
+                <RouterProvider router={router}/>
+            </ThemeProvider>
+        </Provider>
     )
 }
 

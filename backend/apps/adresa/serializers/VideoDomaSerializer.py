@@ -6,4 +6,4 @@ from apps.adresa.models import VideoDoma
 class VideoDomaSerializer(serializers.ModelSerializer):
     class Meta:
         model = VideoDoma
-        fields = '__all_'
+        fields = '__all__'
