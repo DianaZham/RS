@@ -1,8 +1,5 @@
 from django.db import models
 
-from apps.adresa.models import Dom
-
-
 class TipResheniaPoProektu(models.Model):
     class Meta():
         verbose_name = 'Тип решения по проекту'

@@ -1,0 +1,6 @@
+from .DomPoProektuSerializer import DomPoProektuSerializer
+from .StatusIspolneniaSerializer import StatusIspolneniaSerializer
+from .UchastnikRabochaiaGruppaSerializer import UchastnikRabochaiaGruppaSerializer
+from .ResheniePoProektuSerializer import ResheniePoProektuSerializer
+from .TipResheniaPoProektuSerializer import TipResheniaPoProektuSerializer
+from .ProektSerializer import ProektSerializer
