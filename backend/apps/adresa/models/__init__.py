@@ -1,6 +1,6 @@
 from .Okrug import Okrug
-from .Rayon import Rayon
 from .NaseleniPunkt import NaseleniPunkt
+from .Rayon import Rayon
 from .Uliza import Uliza
 from .TipObecta import TipObecta
 from .SostoyanieDoma import SostoyanieDoma
