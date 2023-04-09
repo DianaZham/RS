@@ -1,3 +1,4 @@
+from .Okrug import Okrug
 from .NaseleniPunkt import NaseleniPunkt
 from .Uliza import Uliza
 from .Dom import Dom
