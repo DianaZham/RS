@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from apps.vladelzi_zdani.models import VladelezZdania
-from apps.vladelzi_zdani.serializers.VladelezZdaniaSerializer import VladelezZdaniaSerializer
+from apps.vladelzi_zdani.serializers import VladelezZdaniaSerializer
 
 
 class VladelezZdaniaLV(APIView):

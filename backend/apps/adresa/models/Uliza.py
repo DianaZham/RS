@@ -1,9 +1,5 @@
-import uuid
 from django.db import models
-from django.template.defaultfilters import safe
-
-from apps.adresa.models import Okrug, NaseleniPunkt
-
+from apps.adresa.models import NaseleniPunkt
 
 class Uliza(models.Model):
     class Meta():
