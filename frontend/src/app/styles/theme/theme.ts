@@ -121,6 +121,7 @@ const ApplicationTheme: DefaultTheme = {
         small: 4
     },
     shadow: {
+        'large-2': '0 16px 32px 0 rgba(38, 54, 153, 0.3)',
         large: '0 16px 32px 0 rgba(38, 54, 153, 0.04)',
         medium: '0 8px 16px 0 rgba(38, 54, 153, 0.04)',
         normal: '0 4px 8px 0 rgba(38, 54, 153, 0.06)',

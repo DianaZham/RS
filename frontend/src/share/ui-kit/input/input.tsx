@@ -1,27 +1,21 @@
-import React, { FC } from 'react'
-import StyledInput from './styledInput'
-import StyledCheckbox from './styledCheckbox'
+import styled from 'styled-components'
 
+const StyledInput = styled.input`
+  padding: ${({theme}) => theme.spacing['sp-1']}px;
+  font-family: ${({theme}) => theme.font.family};
+`
 
+export const TextField = styled(StyledInput).attrs({
+    type: 'text',
+})``
 
-type InputProps = {
-    name?: string
-    type?: string,
-    placeholder: string
-}
+export const PasswordField = styled(StyledInput).attrs({
+    type: 'password'
+})``
 
-const Input: FC<InputProps> = ({placeholder, type = 'text', name = 'name'}) => {
-    switch (type) {
-    case 'checkbox':
-        return <div>
-            <StyledCheckbox placeholder={placeholder}/>
-        </div>
-    case 'radio':
-        return <StyledInput placeholder={placeholder}/>
-    default: 
-        return <StyledInput name={name} placeholder={placeholder}/>
-    }
-
-}
-
-export default Input
+export const SubmitButton = styled(StyledInput).attrs({
+    type: 'submit'
+})`
+  background: rgba(0 0 0 / 30%);
+  color: white;
+`

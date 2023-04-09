@@ -1,18 +1,28 @@
 import React, {FC} from 'react'
-import {NavigationLink, StyledVerticalNavigationMenu} from './styled'
+import {BsCalendarHeart, BsMap, BsTable} from 'react-icons/bs'
+import {NavigationLink, StyledNavigationBlock, StyledVerticalNavigationMenu} from './styled'
 import {Path} from '../../../../app'
-import {useMatches} from 'react-router-dom'
+import {UserInfoCard} from '../../../../entities/user'
 
-const isMatchPath = (paths: { pathname: string }[], path: string) => (paths.find(({pathname}) => pathname === path)) !== undefined
 
 const VerticalNavigationMenu: FC = () => {
-
-    const matches = useMatches()
-
     return (
         <StyledVerticalNavigationMenu>
-            <NavigationLink to={Path.Home} $isActive={isMatchPath(matches, Path.Home)}>Home</NavigationLink>
-            <NavigationLink to={Path.Other} $isActive={isMatchPath(matches, Path.Other)}>Other</NavigationLink>
+            <UserInfoCard firstName="Alex" lastName="Kovalsky" email="aboba@yandex.ru" avatarURL="./"/>
+            <StyledNavigationBlock>Навигация</StyledNavigationBlock>
+            <NavigationLink
+                to={Path.Registry}
+            >
+                <BsTable/> Реестр
+            </NavigationLink>
+            <NavigationLink
+                to={Path.Map}
+            ><BsMap/> Карта объектов
+            </NavigationLink>
+            <NavigationLink
+                to={Path.Calendar}
+            ><BsCalendarHeart/> Календарь событий
+            </NavigationLink>
         </StyledVerticalNavigationMenu>
     )
 }
