@@ -19,7 +19,6 @@ class UlizaAdmin(ImportExportModelAdmin):
     ]
     search_fields = [
         'id',
-        'rayon',
         'rayon__name',
     ]
     list_filter = ['rayon']
