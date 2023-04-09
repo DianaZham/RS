@@ -6,4 +6,4 @@ from apps.adresa.models import DopPoleNaDome
 class DopPoleNaDomeSerializer(serializers.ModelSerializer):
     class Meta:
         model = DopPoleNaDome
-        fields = '__all_'
+        fields = '__all__'
