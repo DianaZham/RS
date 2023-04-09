@@ -7,6 +7,8 @@ import {ProjectsInProgressCard} from '../../widgets/projects-in-progress'
 import {LastProjectsList} from '../../widgets/last-projects'
 import {StyledPageRow, StyledPageWrapper} from '../styled'
 import ProjectsCalendar from '../../widgets/projects-calendar/ui/projects-calendar/projects-calendar'
+import { ProjectsInProgressPerMonth } from '../../widgets/project-in-progress-per-month'
+import { DecisionPerLastMonth } from '../../widgets/decision-per-last-month'
 
 const CalendarPage: FC = () => (
     <StyledPageWrapper>
@@ -18,9 +20,9 @@ const CalendarPage: FC = () => (
         </StyledPageRow>
 
         <StyledPageRow>
-            <LastProjectsList/>
+            <ProjectsInProgressPerMonth/>
             <ProjectsByTypeDoughnut/>
-            <NextProjectsDeadlineList/>
+            <DecisionPerLastMonth/>
         </StyledPageRow>
 
         <StyledPageRow>
