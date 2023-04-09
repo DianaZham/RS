@@ -6,4 +6,4 @@ from apps.proekti.models import Proekt
 class ProektSerializer(serializers.ModelSerializer):
     class Meta:
         model = Proekt
-        fields = '__all_'
+        fields = '__all___'

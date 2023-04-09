@@ -6,4 +6,4 @@ from apps.adresa.models import Okrug
 class OkrugSerializer(serializers.ModelSerializer):
     class Meta:
         model = Okrug
-        fields = '__all_'
+        fields = '__all__'

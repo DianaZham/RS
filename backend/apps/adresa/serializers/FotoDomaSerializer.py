@@ -6,4 +6,4 @@ from apps.adresa.models import FotoDoma
 class FotoDomaSerializer(serializers.ModelSerializer):
     class Meta:
         model = FotoDoma
-        fields = '__all_'
+        fields = '__all__'
