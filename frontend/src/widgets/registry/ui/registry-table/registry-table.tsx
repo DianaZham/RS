@@ -1,42 +1,24 @@
-import React, {Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from '@mui/material'
+import React, {useEffect, useState} from 'react'
+import {Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from '@mui/material'
+import {getAllProjects} from '../../../../entities/project/api'
+import {RegistryProject} from '../../types'
+import {toRegistryProject} from '../../model'
 import {RegistryProjectCard} from '../registry-project-card'
-import {ControlDate, Project} from '../../../../entities/project'
 
-type RegistryTableProject = Project & { nextControlDate: ControlDate }
-
-const projects: RegistryTableProject[] = [
-    {
-        id: 1,
-        nextControlDate: {date: new Date(), description: 'adsfadf'},
-        controlDates: [],
-        accountable: 'Пупкин',
-        number: '12371/8',
-        status: 'В работе',
-        constructionArea: 'Можельский район',
-        buildings: [
-            {
-                id: 1,
-                type: 'Памятник',
-                square: 244,
-                address: 'пупкинская 64',
-                owner: 'Пупкин',
-                quality: 'Жилой памятник, для голубей',
-                numFloors: 9999
-            },
-            {
-                id: 2,
-                type: 'Жилой дом',
-                square: 12,
-                address: 'пупкинская 6',
-                owner: 'Пупкин',
-                quality: 'Для студента не сойдет',
-                numFloors: 9999
-            }
-        ]
-    }
-]
+type RegistryTableProject = RegistryProject[]
 
 const RegistryTable = () => {
+    
+    const [projects, setProjects] = useState<RegistryTableProject>([])
+    
+    useEffect(() => {
+        (async () => {
+            const data = await getAllProjects()
+            setProjects(data.map(toRegistryProject))
+        })()
+        
+    }, [])
+    
     return (
         <TableContainer component={Paper}>
             <Table aria-label="collapsible table">

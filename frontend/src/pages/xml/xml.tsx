@@ -1,39 +1,46 @@
 import React, {FC, useEffect, useState} from 'react'
 
 import {StyledPageRow, StyledPageWrapper} from '../styled'
-import {Button} from "@mui/material";
+import {Button, Paper} from '@mui/material'
 
 type XmlType = {
-    label:string
-    url:string
+    label: string
+    url: string
 }
 
-//todo url константой
 const XmlPage: FC = () => {
-    const [state, setState] = useState<XmlType[]>([])
-    //запросить с сервера список моделей по которым можно сформировать xml
-    useEffect( ()=> {
-        const f = async () => {
+    const [state, setState] = useState<XmlType[]>([{label: '1231231', url: '12312312312'}, {
+        label: '1231231',
+        url: '12312312312'
+    }])
+    
+    
+    useEffect(() => {
+        const fetchData = async () => {
             const response = await fetch('http://127.0.0.1:8000/api/otcheti/xml_model_lv/')
             const data = await response.json() as XmlType[]
             setState(data)
         }
-        f()
-         
-    },[])
+        
+        void fetchData()
+        
+    }, [])
     return (
         <StyledPageWrapper>
-
             <StyledPageRow>
-                <div>
-                    {state.map((item, index)=>{
-                        return(
-                            <div key={index} >
-                                <Button variant="text" href={item.url}>{item.label}({item.url})</Button>
-                            </div>
+                <Paper sx={{display: 'flex', gap: '1rem'}}>
+                    {state.map((item, index) => {
+                        return (
+                            <Button
+                                key={index}
+                                variant="outlined"
+                                color='warning'
+                                href={item.url}
+                            >{item.label}({item.url})
+                            </Button>
                         )
                     })}
-                </div>
+                </Paper>
             </StyledPageRow>
         </StyledPageWrapper>
     )

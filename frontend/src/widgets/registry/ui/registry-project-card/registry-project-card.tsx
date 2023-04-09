@@ -2,13 +2,13 @@ import {Box as MUIBox, Collapse, IconButton, Table, TableBody, TableCell, TableH
 import React, {FC, useState} from 'react'
 import {AiOutlineMinus, AiOutlinePlus} from 'react-icons/ai'
 import {Headline} from '../../../../share'
-import {ControlDate, Project} from '../../../../entities/project'
+import {RegistryProject} from '../../types'
 
-type RowType = {
-    project: Project & { nextControlDate: ControlDate }
+type RegistryProjectCardProps = {
+    project: RegistryProject
 }
 
-const RegistryProjectCard: FC<RowType> = ({
+const RegistryProjectCard: FC<RegistryProjectCardProps> = ({
     project
 }) => {
     const [isOpen, setIsOpen] = useState(false)
@@ -24,11 +24,11 @@ const RegistryProjectCard: FC<RowType> = ({
                         {isOpen ? <AiOutlineMinus/> : <AiOutlinePlus/>}
                     </IconButton>
                 </TableCell>
-                <TableCell component="th" scope="row">{project.number}</TableCell>
+                <TableCell component="th" scope="row">{project.businessNumber}</TableCell>
                 <TableCell align="right">{project.status}</TableCell>
-                <TableCell align="right">{project.constructionArea}</TableCell>
-                <TableCell align="right">{project.nextControlDate.date.toDateString()}</TableCell>
-                <TableCell align="right">{project.accountable}</TableCell>
+                <TableCell align="right">{project.constructionArea.join(' / ')}</TableCell>
+                <TableCell align="right">{project.nextControlDate}</TableCell>
+                <TableCell align="right">{project.accountable.join(' / ')}</TableCell>
             </TableRow>
             
             <TableRow>
@@ -39,9 +39,9 @@ const RegistryProjectCard: FC<RowType> = ({
                             <Table size="small" aria-label="purchases">
                                 <TableHead>
                                     <TableRow>
-                                        <TableCell>Улица</TableCell>
+                                        <TableCell>Адрес</TableCell>
                                         <TableCell>Площадь</TableCell>
-                                        <TableCell align="right">Вид объекта</TableCell>
+                                        <TableCell align="right">Тип объекта</TableCell>
                                         <TableCell align="right">Состояние дома</TableCell>
                                         <TableCell align="right">Владелец здания</TableCell>
                                     </TableRow>
@@ -50,7 +50,7 @@ const RegistryProjectCard: FC<RowType> = ({
                                 <TableBody>
                                     {project.buildings.map((building) => (
                                         <TableRow key={building.id}>
-                                            <TableCell>{building.address}</TableCell>
+                                            <TableCell>{building.fullAddress}</TableCell>
                                             <TableCell>{building.square}</TableCell>
                                             <TableCell align="right">{building.type}</TableCell>
                                             <TableCell align="right">{building.quality}</TableCell>
@@ -58,7 +58,7 @@ const RegistryProjectCard: FC<RowType> = ({
                                         </TableRow>
                                     ))}
                                 </TableBody>
-                                
+                            
                             </Table>
                         </MUIBox>
                     </Collapse>

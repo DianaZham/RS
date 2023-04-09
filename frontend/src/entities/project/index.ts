@@ -1,2 +1,2 @@
-export {ProjectCard} from './ui'
+export {ProjectCard, ProjectDetail} from './ui'
 export {type Project, type ControlDate} from './types'

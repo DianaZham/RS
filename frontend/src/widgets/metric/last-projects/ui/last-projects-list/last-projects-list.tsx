@@ -1,17 +1,28 @@
-import React, {FC} from 'react'
+import React, {FC, useEffect, useState} from 'react'
 import {MetricList} from '../../../../../entities/metric'
+import {getLastProjects} from '../../api'
+import {LastProjectWidgetProject} from '../../types'
+import {Link} from '../../../../../share'
+import {Path} from '../../../../../app'
+import {withoutSlug} from '../../../../../app/routes'
 
 const LastProjectsList: FC = () => {
+    
+    const [projects, setProjects] = useState<LastProjectWidgetProject[]>([])
+    
+    useEffect(() => {
+        (async () => {
+            const data = await getLastProjects()
+            setProjects(data)
+        })()
+    }, [])
+    
     return <MetricList
-        title="Последние проекты / Дата согсласования"
-        metrics={[
-            {title: '#0990929', value: '31.11.1997'},
-            {title: '#7812393', value: '01.12.1997'},
-            {title: '#8928399', value: '04.12.1997'},
-            {title: '#9811240', value: '05.12.1997'},
-            {title: '#9149392', value: '09.12.1997'},
-            {title: '#1238839', value: '17.12.1997'},
-        ]}
+        title="Последние проекты / Дата согласования"
+        metrics={projects.map((project) => ({
+            title: <Link to={`/${withoutSlug(Path.Project)}/${project.id}`}>{project.businessNumber}</Link>,
+            value: project.dateApproval
+        }))}
         color="rgb(193 233 227)"
     />
 }

@@ -9,7 +9,7 @@ export interface Project {
     id: number
     number: string
     status: string
-    constructionArea: string
+    constructionArea: string[]
     controlDates: ControlDate[]
     accountable: string
     buildings: Building[]

@@ -3,6 +3,7 @@ import {YMaps, Map as YMap, Placemark} from '@pbe/react-yandex-maps'
 import Modal from '../modal/modal'
 
 type Coord = {
+    buildingID: number
     lat: number,
     lon: number
 }
@@ -23,10 +24,14 @@ const Map: FC<MapProps> = ({
     className
 }) => {
     const [isOpenModal, setIsOpenModal] = useState(false)
-
-    const pointClickHandler = () => setIsOpenModal(true)
+    
+    const pointClickHandler = (id: number) => {
+        setIsOpenModal(true)
+        
+    }
+    
     const closeModalHandler = () => setIsOpenModal(false)
-
+    
     return (
         <YMaps>
             <YMap
@@ -36,9 +41,9 @@ const Map: FC<MapProps> = ({
                     zoom,
                 }}
             >
-                {objectPoints.map(({lat, lon}, index) => <Placemark
+                {objectPoints.map(({lat, lon, buildingID}, index) => <Placemark
                     key={index}
-                    onClick={pointClickHandler}
+                    onClick={() => pointClickHandler(buildingID)}
                     geometry={[lat, lon]}/>)}
                 <Modal isOpen={isOpenModal} onClose={closeModalHandler}>{children}</Modal>
             </YMap>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, {FC} from 'react'
 import 'chart.js/auto'
 import {Doughnut} from 'react-chartjs-2'
@@ -28,6 +29,7 @@ export const data: ChartData<'doughnut', number[], unknown> = {
 }
 
 const ProjectsByTypeDoughnut: FC = () => {
+    
     return <DiagramMetricCard
         title="Доля объектов по типу:"
         color="rgb(234 245 215)"
@@ -36,11 +38,12 @@ const ProjectsByTypeDoughnut: FC = () => {
             font: {
                 family: 'Nunito-Sans',
             },
+            aspectRatio: 1,
             plugins: {
                 legend: {
                     align: 'start',
-                }
-            }
+                },
+            },
         }}/>}
     />
 }

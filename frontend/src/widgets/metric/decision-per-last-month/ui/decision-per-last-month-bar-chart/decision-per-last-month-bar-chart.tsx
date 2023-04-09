@@ -1,7 +1,7 @@
 import React, {FC} from 'react'
-import { Chart } from '../../../../share/ui-kit/chart'
-import { ChartProps } from '../../../../share/ui-kit/chart/chart'
-import { DiagramMetricCard } from '../../../../entities/metric'
+import { Chart } from '../../../../../share/ui-kit/chart'
+import { ChartProps } from '../../../../../share/ui-kit/chart/chart'
+import { DiagramMetricCard } from '../../../../../entities/metric'
 
 export const {name, type, labels, datasets}: ChartProps = {
     name: 'Количество принятых решений за последний месяц',
@@ -36,9 +36,9 @@ export const {name, type, labels, datasets}: ChartProps = {
 }
 
 const DecisionPerLastMonth: FC = () => {
-    return <DiagramMetricCard 
-        diagram={<Chart type={type} labels={labels} datasets={datasets}/>} 
-        title={name} 
+    return <DiagramMetricCard
+        diagram={<Chart type={type} labels={labels} datasets={datasets}/>}
+        title={name}
         color='rgb(162, 222, 213)'
     />
 }

@@ -1,8 +1,9 @@
 import React, {FC} from 'react'
+import {useNavigate} from 'react-router-dom'
+
 import {Box} from '../../../../../share'
 import {StyledProjectMapCardList, StyledProjectsMap} from './styled'
 import {ProjectCard} from '../../../../../entities/project'
-import {useNavigate} from 'react-router-dom'
 
 const projects: { id: number, typeObject: string, square: number, status: 'new' | 'progress' | 'completed' }[] = [
     {id: 1, typeObject: 'Памятник', square: 412, status: 'new'},
@@ -13,18 +14,20 @@ const projects: { id: number, typeObject: string, square: number, status: 'new' 
 ]
 
 const ProjectsMap: FC = () => {
-
+    
     const navigate = useNavigate()
-
+    
     return (
         <Box $color="rgb(255, 255, 245)">
             <StyledProjectsMap
                 zoom={10}
                 center={{
+                    buildingID: 1,
                     lat: 30,
                     lon: 30
                 }}
                 objectPoints={[{
+                    buildingID: 1,
                     lon: 30,
                     lat: 30
                 }]}

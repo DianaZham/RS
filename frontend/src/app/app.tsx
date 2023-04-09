@@ -5,7 +5,6 @@ import {router} from './routes'
 import {ThemeProvider} from 'styled-components'
 import {Provider} from 'react-redux'
 import {store} from './store/store'
-import {AuthProvider} from './auth'
 
 const App: FC = () => {
     return (
