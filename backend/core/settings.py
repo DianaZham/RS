@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'import_export',
     'rest_framework',
+    'core',
     'apps.adresa',
     'apps.vladelzi_zdani',
     'apps.proekti',

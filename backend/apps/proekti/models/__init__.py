@@ -7,3 +7,5 @@ from .DomPoProektu import DomPoProektu
 from .ResheniePoProektu import ResheniePoProektu
 from .SoglosovaniePoProektu import SoglosovaniePoProektu
 from .SoglosovaniePoProektuDetail import SoglosovaniePoProektuDetail
+from .DopPoleProekta import DopPoleProekta
+from .DopPoleNaProekte import DopPoleNaProekte
