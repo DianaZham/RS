@@ -10,3 +10,7 @@ from .ProektAPI import ProektDV
 from .ProektAPI import ProektLV
 from .UchastnikRabochaiaGruppaAPI import UchastnikRabochaiaGruppaDV
 from .UchastnikRabochaiaGruppaAPI import UchastnikRabochaiaGruppaLV
+from .DopPoleNaProekteAPI import DopPoleNaProekteDV
+from .DopPoleNaProekteAPI import DopPoleNaProekteLV
+from .DopPoleProektaAPI import DopPoleProektaDV
+from .DopPoleProektaAPI import DopPoleProektaLV

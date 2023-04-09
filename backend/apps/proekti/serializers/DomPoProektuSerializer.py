@@ -5,4 +5,4 @@ from apps.proekti.models import DomPoProektu
 class DomPoProektuSerializer(serializers.ModelSerializer):
     class Meta:
         model = DomPoProektu
-        fields = '__all_'
+        fields = '__all__'
