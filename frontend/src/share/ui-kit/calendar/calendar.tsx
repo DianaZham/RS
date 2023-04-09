@@ -7,7 +7,8 @@ import {StyledCalendar} from './styled'
 
 type Event = {
     start: Date
-    end: Date
+    end: Date,
+    title: string,
 }
 
 type CalendarProps = {
@@ -15,10 +16,10 @@ type CalendarProps = {
 }
 
 const isEvent = (event: object): event is Event => {
-    return ('start' in event) && ('end' in event)
+    return ('start' in event) && ('end' in event)  && ('title' in event)
 }
 
-const eventAcceccor = (event: object, prop: 'start' | 'end') => {
+const eventAcceccor = (event: object, prop: 'start' | 'end' | 'title') => {
     if (!isEvent(event)) throw new Error('Events for calendar should have type Event')
     return event[prop]
 }

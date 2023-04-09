@@ -8,6 +8,7 @@ class ProektSerializer(serializers.ModelSerializer):
     class Meta:
         model = Proekt
         fields = [
+            'id',
             'vnutrinii_nomer',
             'status',
             'raioni',
