@@ -16,6 +16,8 @@ class NaseleniPunkt(models.Model):
         okrug = ''
         if self.rayon:
             rayon = self.rayon.name
+            if rayon == 'Москва':
+                rayon = ''
             if self.rayon.okrug:
                 okrug = self.rayon.okrug.name
         return f"{okrug} {rayon} {self.name or '-'}"

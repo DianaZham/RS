@@ -23,7 +23,7 @@ class DomAdmin(ImportExportModelAdmin):
         VideoDomaInline,
         FailDomaInline,
     ]
-    autocomplete_fields = ['uliza', ]
+    autocomplete_fields = ['uliza', 'vladelez_zdania', 'zastroyshik', 'tip_obecta', 'sostoyanie_doma']
     list_display_links = [
         'id',
         'uliza',
