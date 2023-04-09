@@ -5,6 +5,8 @@ from .Uliza import Uliza
 from .TipObecta import TipObecta
 from .SostoyanieDoma import SostoyanieDoma
 from .Dom import Dom
+from .DopPoleDoma import DopPoleDoma
 from .FotoDoma import FotoDoma
 from .VideoDoma import VideoDoma
 from .FailDoma import FailDoma
+from .DopPoleNaDome import DopPoleNaDome
