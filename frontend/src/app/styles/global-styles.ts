@@ -15,4 +15,8 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     font-family: '${({theme}) => theme.font.family}';
   }
+
+  body {
+    background: #d3d3d3;
+  }
 `

@@ -1,0 +1,1 @@
+export {RegistryTable} from './ui'

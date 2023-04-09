@@ -1,5 +1,7 @@
 export const enum Path {
-    Home = '/',
-    Other = 'other/'
+    Registry = '/',
+    Map = 'map/',
+    Calendar = 'calendar/',
+    Login = 'login/'
 }
 

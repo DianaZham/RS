@@ -19,12 +19,14 @@ type Dataset = {
     backgroundColor: string
 }
 
-type ChartProps = {
+export type ChartProps = {
 	type: 'bar'| 'line',
     name?: string | null,
     labels: string[],
     datasets: Dataset[],
 }
+
+type start = 'start'
 
 const Chart: FC<ChartProps> = ({name, datasets, labels, type}) => {
 
@@ -38,20 +40,21 @@ const Chart: FC<ChartProps> = ({name, datasets, labels, type}) => {
         Tooltip,
         Legend
     )
-    
+    const start: start = 'start'
     const options = {
         responsive: true,
+        maintainAspectRatio: false,
+        color: 'black',
         plugins: {
             legend: {
-                position: 'top' as const,
                 labels: {
                     font: {
-                        size: 14,
+                        size: 12,
                         family: 'Nunito-Sans',
-                        weight: 'medium'
+                        weight: 'medium',
                     },
-                    padding: 20
                 },
+                align: start
             },
             title: {
                 display: name ? true : false,
@@ -73,9 +76,9 @@ const Chart: FC<ChartProps> = ({name, datasets, labels, type}) => {
 
     switch (type) {
     case 'bar':
-        return <Bar options={options} data={data}/>
+        return <Bar height={300} options={options} data={data}/>
     case 'line': 
-        return <Line options={options} data={data} />
+        return <Line height={300} options={options} data={data} />
     }
 
 }

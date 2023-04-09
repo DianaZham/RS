@@ -7,6 +7,10 @@ export {Map} from './map'
 export {Button} from './button'
 export {VideoPlayer} from './video-player'
 export {Alert} from './alert'
-export {Input} from './input'
+export {Input} from './inputOld'
+<<<<<<< HEAD
 export {Chart} from './chart'
-export {Modal} from './modal'
+=======
+>>>>>>> c4a0c723f93426041d068adc12acc2d998dae53a
+export {Box} from './box'
+export {TextField, PasswordField, SubmitButton} from './input'

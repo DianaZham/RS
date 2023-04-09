@@ -59,6 +59,8 @@ interface SpacingVariant {
 
 type ShadowVariant = {
     [key in FullSizes]: string
+} & {
+    'large-2': string
 }
 
 type RadiusVariant = {

@@ -7,16 +7,16 @@ export const StyledCalendar = styled(Calendar)`
   .rbc-btn-group {
 
     .rbc-active, .rbc-active:hover, .rbc-active:focus-visible {
-      background-color: ${({theme}) => theme.colors.primary.dark};
+      background-color: ${({theme}) => theme.colors.tertiary.dark};
       color: ${({theme}) => theme.colors.neutral.grayLight};
     }
 
     button {
-      background-color: ${({theme}) => theme.colors.primary.light};
+      background-color: ${({theme}) => theme.colors.tertiary.light};
       color: ${({theme}) => theme.colors.neutral.white};
 
       &:active {
-        background-color: ${({theme}) => theme.colors.primary.dark};
+        background-color: ${({theme}) => theme.colors.tertiary.dark};
         color: ${({theme}) => theme.colors.neutral.grayLight};
       }
     }
