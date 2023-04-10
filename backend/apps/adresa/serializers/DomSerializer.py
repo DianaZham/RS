@@ -36,3 +36,4 @@ class DomSerializer(serializers.ModelSerializer):
             })
 
         return result
+
