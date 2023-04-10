@@ -14,3 +14,4 @@ from .DopPoleNaProekteAPI import DopPoleNaProekteDV
 from .DopPoleNaProekteAPI import DopPoleNaProekteLV
 from .DopPoleProektaAPI import DopPoleProektaDV
 from .DopPoleProektaAPI import DopPoleProektaLV
+from .KalendarLv import KalendarLv
