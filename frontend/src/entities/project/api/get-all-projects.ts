@@ -12,7 +12,8 @@ export type GetAllProjectsResponseProject = {
     'status': string,
     'raioni': string[],
     'otvestvenie': string[],
-    'doma': GetAllProjectsResponseBuilding[]
+    'doma': GetAllProjectsResponseBuilding[],
+    'blizaishaia_data': string
 }
 
 export const getAllProjects = async () => {
