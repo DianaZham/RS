@@ -1,44 +1,80 @@
-import React, {FC} from 'react'
+import React, {FC, useEffect, useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 
 import {Box} from '../../../../../share'
 import {StyledProjectMapCardList, StyledProjectsMap} from './styled'
 import {ProjectCard} from '../../../../../entities/project'
+import {Path, withoutSlug} from '../../../../../app/routes'
 
-const projects: { id: number, typeObject: string, square: number, status: 'new' | 'progress' | 'completed' }[] = [
-    {id: 1, typeObject: 'Памятник', square: 412, status: 'new'},
-    {id: 2, typeObject: 'Памятник', square: 512, status: 'progress'},
-    {id: 3, typeObject: 'Памятник', square: 413, status: 'completed'},
-    {id: 4, typeObject: 'Памятник', square: 745, status: 'new'},
-    {id: 5, typeObject: 'Памятник', square: 154, status: 'new'},
-]
+type Project = {
+    id: number
+    vnutrinii_nomer: string
+    status: string
+    otvestveni: string
+    data_ispolnenia_po_resheniyu: string
+}
+
+type Response = {
+    id: number
+    proekti: Project[]
+}
+
+type Point = {
+    id: number
+    lat: number
+    lon: number
+}
 
 const ProjectsMap: FC = () => {
-    
     const navigate = useNavigate()
+    const [points, setPoints] = useState<Point[]>([])
+    const [projects, setProjects] = useState<Project[]>([])
+    
+    const pointClickHandler = (id: number) => {
+        (async () => {
+            const response = await fetch(`http://127.0.0.1:8000/api/adresa/dom/${id}`)
+            const data = await response.json() as Response
+            console.log(data)
+            setProjects(data.proekti)
+        })()
+    }
+    
+    const projectClickHandler = (id: number) => {
+        navigate(`/${withoutSlug(Path.Project)}/${id}`)
+    }
+    
+    useEffect(() => {
+        (async () => {
+            const response = await fetch('http://127.0.0.1:8000/api/adresa/dom/')
+            const data = await response.json() as Point[]
+            setPoints(data)
+        })()
+        
+    }, [])
     
     return (
         <Box $color="rgb(255, 255, 245)">
             <StyledProjectsMap
                 zoom={10}
                 center={{
-                    buildingID: 1,
-                    lat: 30,
-                    lon: 30
+                    id: 1,
+                    lat: 55.818557,
+                    lon: 37.5080428,
                 }}
-                objectPoints={[{
-                    buildingID: 1,
-                    lon: 30,
-                    lat: 30
-                }]}
+                objectPoints={points.map(point => ({
+                    ...point,
+                    onPointClick: pointClickHandler
+                }))}
             >
                 <StyledProjectMapCardList>
                     {projects.map(project => (
                         <ProjectCard
                             key={project.id}
-                            typeObject={project.typeObject}
-                            square={project.square}
+                            number={project.vnutrinii_nomer}
                             status={project.status}
+                            accountable={project.otvestveni}
+                            controlDate={project.data_ispolnenia_po_resheniyu}
+                            onClick={() => projectClickHandler(project.id)}
                         />
                     ))}
                 </StyledProjectMapCardList>

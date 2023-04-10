@@ -8,7 +8,7 @@ import {UserInfoCard} from '../../../../entities/user'
 const VerticalNavigationMenu: FC = () => {
     return (
         <StyledVerticalNavigationMenu>
-            <UserInfoCard firstName="Alex" lastName="Kovalsky" email="aboba@yandex.ru" avatarURL="./"/>
+            <UserInfoCard firstName="Admin" lastName="Kovalsky"/>
             <StyledNavigationBlock>Навигация</StyledNavigationBlock>
             <NavigationLink
                 to={Path.Registry}
@@ -31,13 +31,13 @@ const VerticalNavigationMenu: FC = () => {
                 to={Path.Report}
             ><BsFileExcel/> Отчеты
             </NavigationLink>
-
+            
             <NavigationLink
-                 target="_blank"
+                target="_blank"
                 to='http://127.0.0.1:8000/admin/'
             ><BsTools/> Админка(бек есть, фронт чуть не успели)
             </NavigationLink>
-
+        
         </StyledVerticalNavigationMenu>
     )
 }

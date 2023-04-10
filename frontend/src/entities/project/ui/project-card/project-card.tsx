@@ -1,40 +1,30 @@
 import React, {FC} from 'react'
 import {Text} from '../../../../share'
 import {StyledProjectCard} from './styled'
+import {useNavigate} from 'react-router-dom'
 
-type Status = 'progress' | 'new' | 'completed'
 
 type ProjectCardProps = {
-    typeObject: string
-    square: number
-    status: Status
+    number: string
+    controlDate: string
+    status: string
+    accountable: string
     onClick?: () => void
 }
 
-const colorsByStatus = {
-    completed: '#ff000042',
-    new: '#d6d6ff9c',
-    progress: '#00d6002e',
-}
-
-const textByStatus: { [key in Status]: string } = {
-    new: 'Новый',
-    progress: 'В работе',
-    completed: 'Завершен'
-}
-
 const ProjectCard: FC<ProjectCardProps> = ({
-    square,
+    number,
     status,
-    typeObject,
+    controlDate,
+    accountable,
     onClick
 }) => {
-
     return (
-        <StyledProjectCard $color={colorsByStatus[status]} onClick={onClick}>
-            <Text>{typeObject}</Text>
-            <Text>{square}</Text>
-            <Text>{textByStatus[status]}</Text>
+        <StyledProjectCard $color={'white'} onClick={onClick}>
+            <Text>{number}</Text>
+            <Text>{controlDate}</Text>
+            <Text>{accountable}</Text>
+            <Text>{status}</Text>
         </StyledProjectCard>
     )
 }
