@@ -1,9 +1,10 @@
 import {GetAllProjectsResponseBuilding, GetAllProjectsResponseProject} from '../../../entities/project/api'
 import {RegistryBuilding, RegistryProject} from '../types'
+import {GetProjectByIDBuilding, GetProjectByIDProject} from '../../../entities/project/api/get-project-by-id'
 
 //TODO: ДАТУ В ЗАПРОС, ID В СТРОЕНИЕ
 
-export const toRegistryBuilding = (data: GetAllProjectsResponseBuilding): RegistryBuilding => ({
+export const toRegistryBuilding = (data: GetAllProjectsResponseBuilding | GetProjectByIDBuilding): RegistryBuilding => ({
     id: 1,
     fullAddress: data.adres,
     type: data.tip_obekta ?? ' - ',
@@ -12,12 +13,12 @@ export const toRegistryBuilding = (data: GetAllProjectsResponseBuilding): Regist
     square: data.ploshad,
 })
 
-export const toRegistryProject = (data: GetAllProjectsResponseProject): RegistryProject => ({
+export const toRegistryProject = (data: GetAllProjectsResponseProject | GetProjectByIDProject): RegistryProject => ({
     id: data.id,
     status: data.status,
     businessNumber: data.vnutrinii_nomer,
     accountable: data.otvestvenie,
     constructionArea: data.raioni,
-    nextControlDate: 'ДАТА!',
+    nextControlDate: data.blizaishaia_data,
     buildings: data.doma.map(toRegistryBuilding)
 })

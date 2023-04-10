@@ -1,28 +1,41 @@
-import React, {FC} from 'react'
+import React, {FC, useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom'
 import {StyledProjectPage} from './styled'
-import {ProjectDetail} from '../../entities/project'
-
-//TODO: ДОБАВИТЬ API
+import {getProjectById, ProjectDetail} from '../../entities/project'
+import {RegistryProject} from '../../widgets/registry/types'
+import {toRegistryProject} from '../../widgets/registry/model'
+import {deleteProject} from '../../entities/project/api'
+import {updateProject} from '../../entities/project/api/patch-project-by-id'
 
 const ProjectPage: FC = () => {
     const {id} = useParams()
+    const [project, setProject] = useState<RegistryProject>()
+    
+    const deleteHandler = () => {
+        id && deleteProject(id)
+    }
+    
+    const updateHandler = (ref: React.MutableRefObject<HTMLFormElement | null>) => {
+        if (ref.current && id) {
+            const formData = new FormData(ref.current)
+            updateProject(id, formData)
+        }
+    }
+    
+    useEffect(() => {
+        (async () => {
+            const data = await getProjectById(id || 1)
+            setProject(toRegistryProject(data))
+        })()
+    }, [])
     
     return (
         <StyledProjectPage>
-            <ProjectDetail project={{
-                id: 1,
-                buildings: [],
-                constructionArea: ['123', '123'],
-                status: 'Завершен',
-                accountable: ['123', '123'],
-                nextControlDate: '2023-11-29',
-                businessNumber: '1232131'
-            }}
-            onClickDelete={() => console.log(123)}
-            onClickUpdate={() => console.log(123)}
-            
-            />
+            {project && <ProjectDetail
+                project={project}
+                onClickDelete={deleteHandler}
+                onClickUpdate={updateHandler}
+            />}
         </StyledProjectPage>
     )
 }

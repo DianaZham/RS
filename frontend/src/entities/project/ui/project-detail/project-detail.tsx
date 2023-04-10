@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React, {FC, useRef} from 'react'
 import {
     Box,
     Button,
@@ -23,18 +23,19 @@ import {Path, withoutSlug} from '../../../../app/routes'
 
 type ProjectDetailProps = {
     project: RegistryProject
-    onClickUpdate: () => void
-    onClickDelete: () => void
+    onClickUpdate: (ref: React.MutableRefObject<HTMLFormElement | null>) => void
+    onClickDelete: (ref: React.MutableRefObject<HTMLFormElement | null>) => void
 }
 
 const ProjectDetail: FC<ProjectDetailProps> = ({project, onClickDelete, onClickUpdate}) => {
+    const formRef = useRef(null)
     return (
-        <Box component="form" noValidate>
+        <Box component="form" noValidate ref={formRef}>
             <Grid container spacing={5}>
                 <Grid item xs={12} sm={6}>
                     <TextField
                         color='warning'
-                        name="number"
+                        name="vnutrinii_nomer"
                         required
                         fullWidth
                         id="number"
@@ -67,7 +68,7 @@ const ProjectDetail: FC<ProjectDetailProps> = ({project, onClickDelete, onClickU
                         required
                         fullWidth
                         id="controlDate"
-                        name="controlDate"
+                        name="blizaishaia_data"
                         type="date"
                         label="Контрольная дата"
                         defaultValue={project.nextControlDate}
@@ -75,11 +76,11 @@ const ProjectDetail: FC<ProjectDetailProps> = ({project, onClickDelete, onClickU
                 </Grid>
                 <Grid item xs={6}>
                     <TextField
-                        InputLabelProps={{ shrink: true }}
+                        InputLabelProps={{shrink: true}}
                         color="warning"
                         required
                         fullWidth
-                        name="accountable"
+                        name="otvestvenie"
                         label="Ответственное лицо"
                         type="text"
                         id="accountable"
@@ -91,7 +92,7 @@ const ProjectDetail: FC<ProjectDetailProps> = ({project, onClickDelete, onClickU
                         color="warning"
                         required
                         fullWidth
-                        name="area"
+                        name="raioni"
                         label="Район"
                         type="text"
                         id="area"
@@ -139,8 +140,8 @@ const ProjectDetail: FC<ProjectDetailProps> = ({project, onClickDelete, onClickU
                 </Grid>}
             </Grid>
             <ButtonGroup sx={{mt: 5}} variant="contained" color="warning" aria-label="outlined button group">
-                <Button color="warning" onClick={() => onClickUpdate?.()}>Обновить данные</Button>
-                <Button color="error" onClick={() => onClickDelete?.()}>Удалить проект</Button>
+                <Button color="warning" onClick={() => onClickUpdate?.(formRef)}>Обновить данные</Button>
+                <Button color="error" onClick={() => onClickDelete?.(formRef)}>Удалить проект</Button>
             </ButtonGroup>
         </Box>
     )
