@@ -30,7 +30,7 @@ const XmlPage: FC = () => {
                         return (
                             <div key={index} >
                                 <Button
-
+                                    target="_blank"
                                     variant="text"
                                     color='warning'
                                     href={item.url}

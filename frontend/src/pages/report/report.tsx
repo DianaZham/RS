@@ -22,6 +22,7 @@ const ReportPage: FC = () => {
                     <div>
                         <Button
                             variant="text"
+                             target="_blank"
                             color='warning'
                             href="http://127.0.0.1:8000/api/otcheti/render_protocol_soglasovania/1/"
                         >Протокол согласования - не успели разместить там где надо. В карточке проекта =(
