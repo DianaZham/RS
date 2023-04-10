@@ -20,7 +20,7 @@ const isEvent = (event: object): event is EventCalendar => {
     throw new Error('Events for calendar should have type Event')
 }
 
-const eventAcceccor = (event: object, prop: 'start' | 'end' | 'title') => {
+const eventAcceccor = (event: object, prop: 'start' | 'end' ) => {
     try {
         isEvent(event)
         return event[prop  as keyof typeof event]
