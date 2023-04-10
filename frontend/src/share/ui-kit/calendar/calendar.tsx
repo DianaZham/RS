@@ -16,12 +16,19 @@ type CalendarProps = {
 }
 
 const isEvent = (event: object): event is EventCalendar => {
-    return ('start' in event) && ('end' in event)  && ('title' in event)
+    if ( ('start' in event) && ('end' in event)  && ('title' in event)) return true
+    throw new Error('Events for calendar should have type Event')
 }
 
 const eventAcceccor = (event: object, prop: 'start' | 'end' | 'title') => {
-    if (!isEvent(event)) throw new Error('Events for calendar should have type Event')
-    return event[prop]
+    try {
+        isEvent(event)
+        return event[prop  as keyof typeof event]
+    } catch(e) {
+        throw new Error('Events for calendar should have type Event')
+    }
+    // if (!isEvent(event)) throw new Error('Events for calendar should have type Event')
+    // return event[prop  as keyof typeof event]
 }
 
 const Calendar: FC<CalendarProps> = ({events}) =>
