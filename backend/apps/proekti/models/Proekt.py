@@ -18,3 +18,9 @@ class Proekt(models.Model):
     def __str__(self):
         result = self.vnutrinii_nomer if self.vnutrinii_nomer else self.id
         return f'Проект #{result}'
+
+    def get_adresa(self):
+        reesult = []
+        for i in self.resheniepoproektu_set.all():
+            reesult.append(i.dom.get_full_adres())
+        return reesult

@@ -2,7 +2,7 @@ from django.urls import path
 
 from .api import DomPoProektuLV, DomPoProektuDV, ResheniePoProektuLV, ResheniePoProektuDV, StatusIspolneniaLV, \
     StatusIspolneniaDV, TipResheniaPoProektuLV, TipResheniaPoProektuDV, ProektLV, ProektDV, UchastnikRabochaiaGruppaLV, \
-    UchastnikRabochaiaGruppaDV, DopPoleNaProekteLV, DopPoleNaProekteDV, DopPoleProektaLV, DopPoleProektaDV
+    UchastnikRabochaiaGruppaDV, DopPoleNaProekteLV, DopPoleNaProekteDV, DopPoleProektaLV, DopPoleProektaDV, KalendarLv
 
 urlpatterns = [
     path('dom_po_proektu/', DomPoProektuLV.as_view()),
@@ -21,4 +21,5 @@ urlpatterns = [
     path('dop_pole_na_proekte/<id>/', DopPoleNaProekteDV.as_view()),
     path('dop_pole_proekta/', DopPoleProektaLV.as_view()),
     path('dop_pole_proekta/<id>/', DopPoleProektaDV.as_view()),
+    path('kalendar/', KalendarLv.as_view()),
 ]

@@ -14,8 +14,14 @@ class ResheniePoProektu(models.Model):
     tip_reshenia_po_proektu = models.ForeignKey(TipResheniaPoProektu, on_delete=models.SET_NULL, null=True, blank=True)
     primechanie_po_resheniu = models.TextField('Примечание по решению', null=True, blank=True)
     data_priniatia_reshenia = models.DateField('Дата принятия решения', null=True, blank=True)
-    data_ispolnenia_po_resheniyu =  models.DateField('Дата для исполненения решения', null=True, blank=True)
-
+    data_ispolnenia_po_resheniyu = models.DateTimeField('Дата для исполненения решения(календарь)', null=True,
+                                                        blank=True)
 
     def __str__(self):
         return f'Дом по проекту {self.dom.get_full_adres()}'
+
+    def get_calendar_title(self):
+        tip_reshenia_po_proektu = '-'
+        if self.tip_reshenia_po_proektu:
+            tip_reshenia_po_proektu = self.tip_reshenia_po_proektu.nazvanie
+        return f'{self.dom.uliza or "-"} {self.dom.name} - {tip_reshenia_po_proektu}'

@@ -5,17 +5,17 @@ import {ruFormats} from './ru-formats'
 import {ruMessages} from './ru-messages'
 import {StyledCalendar} from './styled'
 
-type Event = {
+export type EventCalendar = {
     start: Date
     end: Date,
     title: string,
 }
 
 type CalendarProps = {
-    events: Event[]
+    events: EventCalendar[]
 }
 
-const isEvent = (event: object): event is Event => {
+const isEvent = (event: object): event is EventCalendar => {
     return ('start' in event) && ('end' in event)  && ('title' in event)
 }
 
