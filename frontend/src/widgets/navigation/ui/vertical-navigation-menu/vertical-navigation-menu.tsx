@@ -1,5 +1,5 @@
 import React, {FC} from 'react'
-import {BsCalendarHeart, BsFiletypeXml, BsMap, BsTable} from 'react-icons/bs'
+import {BsCalendarHeart, BsFileExcel, BsFiletypeXml, BsMap, BsTable, BsTools} from 'react-icons/bs'
 import {NavigationLink, StyledNavigationBlock, StyledVerticalNavigationMenu} from './styled'
 import {Path} from '../../../../app'
 import {UserInfoCard} from '../../../../entities/user'
@@ -27,7 +27,16 @@ const VerticalNavigationMenu: FC = () => {
                 to={Path.XML}
             ><BsFiletypeXml/> XML api/экспорт
             </NavigationLink>
-            
+            <NavigationLink
+                to={Path.Report}
+            ><BsFileExcel/> Отчеты
+            </NavigationLink>
+
+            <NavigationLink
+                to='http://127.0.0.1:8000/admin/'
+            ><BsTools/> Админка(бек есть, фронт чуть не успели)
+            </NavigationLink>
+
         </StyledVerticalNavigationMenu>
     )
 }

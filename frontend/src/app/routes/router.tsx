@@ -11,6 +11,7 @@ import {ProjectPage} from '../../pages/project'
 import {BuildingPage} from '../../pages/building'
 import {AuthProvider} from '../auth'
 import {XmlPage} from '../../pages/xml'
+import {ReportPage} from '../../pages/report'
 
 export const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
             {
                 path: Path.XML,
                 element: <XmlPage/>
+            },
+            {
+                path: Path.Report,
+                element: <ReportPage/>
             },
             {
                 path: Path.Project,
