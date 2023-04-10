@@ -99,34 +99,34 @@ class RenderPovestkiApi(APIView):
             kol_vo_resheni = ResheniePoProektu.objects.filter(proekt_id=reshenie_i.proekt_id, dom_id=reshenie_i.dom.id).count()
             # Порядковый номер
             ws.cell(row=index, column=1).value = index - 3
-            # ws.cell(row=index, column=1).style = 'text_style_and_border'
+
             # Адрес
             ws.cell(row=index, column=2).value = f'{reshenie_i.dom.uliza}, {reshenie_i.dom.name}'
-            # ws.cell(row=index, column=2).style = 'text_style_and_border'
+
             # Район
             ws.cell(row=index, column=3).value = reshenie_i.dom.uliza.rayon.name
-            # ws.cell(row=index, column=3).style = 'text_style_and_border'
+
 
             ws.cell(row=index, column=4).value = index - 3
-            # ws.cell(row=index, column=4).style = 'text_style_and_border'
+
             # Номер протокола
             ws.cell(row=index, column=5).value = reshenie_i.nomer_protokola
-            # ws.cell(row=index, column=5).style = 'text_style_and_border'
+
 
             ws.cell(row=index, column=6).value = index - 3
-            # ws.cell(row=index, column=6).style = 'text_style_and_border'
+
             # Количество решений
             ws.cell(row=index, column=7).value = kol_vo_resheni
-            # ws.cell(row=index, column=7).style = 'text_style_and_border'
+
             # Прошлое поручение
             ws.cell(row=index, column=8).value = index - 3
-            # ws.cell(row=index, column=8).style = 'text_style_and_border'
+
             # Новое поручение
             ws.cell(row=index, column=9).value = reshenie_i.primechanie_po_resheniu
-            # ws.cell(row=index, column=9).style = 'text_style_and_border'
+
             # Примечание
             ws.cell(row=index, column=10).value = reshenie_i.dom.vladelez_zdania
-            # ws.cell(row=index, column=10).style = 'text_style_and_border'
+
             for i_col in range(10):
                 ws.cell(row=index, column=i_col+1).style = 'text_style_and_border'
             index += 1
