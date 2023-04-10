@@ -5,18 +5,23 @@ from apps.adresa.models import Dom, Rayon
 
 def my_view(request):
     from dadata import Dadata
-    token = "674009b926c2e6287fe147d0e622bb40519b8a48"
-    secret = "8f83b76555e28ba1c0d10b0abebdb62addbf7a3b"
+    token = "dbdd762760a6d0a20ebdea53319b52df9617c10c"
+    secret = "fcf37758cfda3e47b8d8b80ca2aac4f10ea1f8ac"
     dadata = Dadata(token, secret)
 
-    count = len(Dom.objects.filter(uliza__rayon__isnull=True))
+    # count = len(Dom.objects.filter(lat__isnull=True))
+    count = len(Dom.objects.filter(flat_cadnum__isnull=True))
     i = 1
-    for dom in Dom.objects.filter(uliza__rayon__isnull=True):
+    # for dom in Dom.objects.filter(lat__isnull=True):
+    for dom in Dom.objects.filter(flat_cadnum__isnull=True):
 
         try:
             result = dadata.clean("address", f'Москва {dom.uliza.name}, {dom.name}')
-            rayon = result['city_district']
-            print(rayon)
+            # dom.lat = result['geo_lat']
+            # dom.lon = result['geo_lon']
+            dom.flat_cadnum = result['flat_cadnum']
+            dom.json_dadata = result
+            dom.save()
             print(f'{i}/{count} Москва {dom.uliza.name}, {dom.name} - ок')
         except Exception:
             print(f'{i}/{count}  Москва {dom.uliza.name}, {dom.name} - error')
