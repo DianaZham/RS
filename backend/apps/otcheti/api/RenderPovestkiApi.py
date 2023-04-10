@@ -97,6 +97,7 @@ class RenderPovestkiApi(APIView):
         for reshenie_i in reshenie:
             ws.row_dimensions[index].alignment = Alignment(horizontal="center", vertical="center")
             kol_vo_resheni = ResheniePoProektu.objects.filter(proekt_id=reshenie_i.proekt_id, dom_id=reshenie_i.dom.id).count()
+            ws.row_dimensions[index].height = 35
             # Порядковый номер
             ws.cell(row=index, column=1).value = index - 3
 
