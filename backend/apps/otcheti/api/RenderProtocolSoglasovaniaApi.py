@@ -49,6 +49,6 @@ class RenderProtocolSoglasovaniaApi(APIView):
             os.makedirs(os_dir_path)
 
         file_name = f"soglasovanie_{soglosovanie_po_proektu_id}.docx"
-        doc.save(f'{os_dir_path}/{file_name}')
+        doc.save(os.path.join(os_dir_path, file_name))
 
         return HttpResponseRedirect(f'/media/otchet/{file_name}')
