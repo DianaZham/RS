@@ -25,6 +25,7 @@ class Dom(models.Model):
                                    blank=True)
     sostoyanie_doma = models.ForeignKey(SostoyanieDoma, verbose_name='Состояние дома', on_delete=models.SET_NULL,
                                         null=True, blank=True)
+    flat_cadnum = models.CharField('Кдастровый номер', max_length=20, null=True, blank=True)
 
     def __str__(self):
         return self.get_full_adres()
