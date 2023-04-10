@@ -42,10 +42,13 @@ class ProektSerializer(serializers.ModelSerializer):
         return spisok_otvestvennih
 
     def get_blizaishaia_data(self, obj):
-        return obj.resheniepoproektu_set.all() \
-            .order_by('data_ispolnenia_po_resheniyu') \
-            .first() \
-            .data_ispolnenia_po_resheniyu
+        try:
+            return obj.resheniepoproektu_set.all() \
+                .order_by('data_ispolnenia_po_resheniyu') \
+                .first() \
+                .data_ispolnenia_po_resheniyu
+        except Exception:
+            return '-'
 
     def get_doma(self, obj):
         result = []
