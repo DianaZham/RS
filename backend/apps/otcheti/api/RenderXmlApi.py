@@ -98,7 +98,7 @@ class RenderXmlApi(APIView):
 
         file_name = f"{model_dlya_xml} {datetime.datetime.now()}.xml"
 
-        with open(f'{os_dir_path}/{file_name}', 'w') as xmlfile:
+        with open(os.path.join(os_dir_path, file_name), 'w') as xmlfile:
             xml = dicttoxml(data)
             xmlfile.write(xml.decode())
 
